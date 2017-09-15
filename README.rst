@@ -24,7 +24,7 @@ Requirements
 ``pip install -r requirements.txt``
     ...
 
-Used
+Usage
 ----
 **in Python:**
 
