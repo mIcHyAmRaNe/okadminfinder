@@ -53,7 +53,7 @@ try:
 
     print('')
     messenger.writeMessage('Your IP address is:','cyan'); 
-    print(requests.get('http://ip.42.pl/raw', proxies=proxies).text)
+    print(requests.get('http://ip.42.pl/raw').text)
     print('')
     # Get site
     site = messenger.writeInput('Enter Site Name \nexample : example.com or www.example.com \n' +Fore.GREEN +'$ ', 'white'); print ('')
