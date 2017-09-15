@@ -1,7 +1,7 @@
 OKadminFinder: Easy way to find admin panel of site
 ===================================================
 
-OKadminFinder is an Apache2 Licensed utility, rewritten in Python 3.x, for admins/pentesters who want to find admin panel of a website.
+OKadminFinder is an Apache2 Licensed utility, rewritten in **Python 3.x**, for admins/pentesters who want to find admin panel of a website.
 There are many other tools but not as effective and secure. Yeah, Okadminfinder has the the ability to use tor and hide your identity
 
 OKadminFinder created for `Pentest Box <https://pentestbox.com/>`_, but you can use it on windows; Linux & Mac
