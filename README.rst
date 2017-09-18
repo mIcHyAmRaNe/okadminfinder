@@ -37,7 +37,7 @@ Usage
 
 .. code-block:: bash
 
-    $ python okadminfinder.py
+    $ python3 okadminfinder.py
     ...
 
 **in Pentest Box (if customaliase are):**
@@ -52,7 +52,7 @@ After that, you must add custom alias.
 
 #. (If you don't have customaliases file) Create a file with name customaliases and place it in ``C://Pentestbox/bin/customtools/``. Please note file should not have any extension and make sure encoding is ANSI
 
-#. Write to this file: ``okadminfinder=python "%pentestbox_ROOT%/bin/Path/to/okadminfinder3/okadminfinder.py" $*``
+#. Write to this file: ``okadminfinder=py -3 "%pentestbox_ROOT%/bin/Path/to/okadminfinder3/okadminfinder.py" $*``
 
 
 Extensions
