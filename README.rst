@@ -66,6 +66,6 @@ Example: site = test.com -> `%s/admin` -> `test.com/admin`
 
 In Future
 ---------
-#. Config file with network params, like proxy, headers etc.
+#. Config file with network params, headers, random-agents etc.
 #. Multithreading work, for faster work. Adding more potential admin panel pages
 #. Console work with params, like: okadminfinder -u --proxy --threads
