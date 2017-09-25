@@ -5,7 +5,6 @@ try:
     # Change main dir to this (need for Pentest Box)
     import os
     os.path.abspath(__file__)
-
     from Classes import (Credits,
                          OKadminFinderClass,
                          MessengerClass)
@@ -22,7 +21,7 @@ try:
     messenger = MessengerClass.Messenger()
 
 except():
-    exit('\n\t[!] Session Cancelled; Something wrong with import modules')
+    exit('\n\t[x] Session Cancelled; Something wrong with import modules')
 
 try:
     # Get credits and print it
@@ -35,33 +34,50 @@ try:
     OKadminFinder.header = {'user-agent': 'OKadminFinder/%s' % Credits.getCredits()[1]}
 
     # Additional params
-    if not messenger.writeInputWithYesNo(Fore.YELLOW + 'Do you want use default params?'):
-        timeout = messenger.writeInput(Fore.YELLOW + 'Change timeout. Please write value in seconds: ' + Fore.GREEN)
-        OKadminFinder.timeout = timeout
+    # if not messenger.writeInputWithYesNo(Fore.YELLOW + '  Do you want use default params?'):
+    #     timeout = messenger.writeInput(Fore.YELLOW + '  Change timeout. Please write value in seconds: ' + Fore.GREEN)
+    #     OKadminFinder.timeout = timeout
 
-    tor = ''
-    while (tor not in ['y','n']):
-        tor = input(Fore.YELLOW + 'Would you like to use tor? [Y][n]  $ ')
-        tor = tor.lower().strip()
-        if tor == 'y':
+    #network params
+    choice=''
+    print(Fore.YELLOW+'    ┌───['+Fore.CYAN+'Network settings:'+Fore.YELLOW+']');
+    while (choice not in ['1','2','3','tor','proxy']):
+        choice=input(Fore.YELLOW+'''    ┊
+    ├╼[1] tor
+    ├╼[2] proxy
+    ├╼[3] nothing
+    ┊
+    └───╼['''+Fore.RED+'''Please choose one option'''+Fore.YELLOW+'''] ~$ ''')
+        if choice=='1' or choice=='tor':
             socks.set_default_proxy(socks.SOCKS5, 'localhost', 9050)
             socket.socket = socks.socksocket
             urllib.request.urlopen
-        
-        elif tor == 'n':
+            proxies=""
+
+        elif choice=='2' or choice=='proxy':
+            prox=input('''    ┊
+    └────► set your HTTP proxy {example:127.0.0.1:80} : ~$ ''')
+            proxies = {
+              'http': 'http://'+prox,
+              'https': 'http://'+prox,
+            }
+
+        else:
+            proxies=""
             continue
 
-    print('')
-    messenger.writeMessage('Your IP address is:','cyan'); 
-    print(requests.get('http://ip.42.pl/raw').text)
+    messenger.writeMessage('''    ┆
+    ├─[Your IP address]
+    ┆''','cyan');
+    print('    └─────►',requests.get('http://ip.42.pl/raw',proxies=proxies).text)
     print('')
     # Get site
-    site = messenger.writeInput('Enter Site Name \nexample : example.com or www.example.com \n' +Fore.GREEN +'$ ', 'white'); print ('')
-    
-    if OKadminFinder.checkUrl(site):
-        messenger.writeMessage('\nSite %s is stable\n' % site,'green')
+    site = messenger.writeInput('  Enter Site Name  { example : example.com or www.example.com } \n' +Fore.BLUE +' ~$ ', 'white'); print ('')
+
+    if OKadminFinder.checkUrl(site,proxies):
+        messenger.writeMessage('\n  Site %s is stable\n' % site,'green')
     else:
-        messenger.writeMessage('Something wrong with url', 'red')
+        messenger.writeMessage('  Something wrong with url', 'red')
         exit(SystemExit)
 
     # Get links for checking
@@ -75,26 +91,26 @@ try:
     for url in urls:
 
         # Create test link with getting params from input and links.txt file
-        reqLink = OKadminFinder.createReqLink(site, url)
+        reqLink = OKadminFinder.createReqLink(site, url, proxies)
         messenger.writeMessage('\t [#] Checking http://' + reqLink, 'yellow')
 
         # Test created link for HTTPerrors. If not error - potential admin panel
-        if OKadminFinder.checkUrl(reqLink):
+        if OKadminFinder.checkUrl(reqLink,proxies):
             adminCount += 1
-            messenger.writeMessage('%s %s' % ('\n>>> http://' + reqLink, 'Admin page found!'), 'green')
+            messenger.writeMessage('  %s %s' % ('\n  [✔] http://' + reqLink, 'Admin page found!'), 'bright')
 
             # Stopped process? and waiting for input for continue
-            messenger.writeInput('Press enter to continue scanning.\n')
+            messenger.writeInput('  Press enter to continue scanning.\n')
 
         # If HTTPerrors continue testing other links
         else:
             continue
 
     # Write last information about scanning with counters
-    messenger.writeMessage('\n\nCompleted \n', 'green')
+    messenger.writeMessage('\n\n  Completed \n', 'green')
     messenger.writeMessage(str(adminCount) + ' Admin pages found', 'white')
     messenger.writeMessage(str(totalCount) + ' total pages scanned', 'white')
-    messenger.writeInput('[/] Scanning over; Press Enter to Exit', 'green')
+    messenger.writeInput('  [/] Scanning over; Press Enter to Exit', 'green')
 
     # This magic for Pentest Box. This is return normal color style of console
     messenger.writeMessage('','white')
@@ -110,4 +126,3 @@ except():
 
     # This magic for Pentest Box. This is return normal color style of console
     messenger.writeMessage('','white')
-
