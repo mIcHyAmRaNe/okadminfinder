@@ -14,7 +14,7 @@ class OKadminFinder():
         self.header = {}
         self.timeout = 0
 
-    def checkUrl(self, url):
+    def checkUrl(self, url, proxies):
         """
         Check target url for HTTPerrors. If Error -> False, If Not Errors-> True
         :param url: string
@@ -27,7 +27,7 @@ class OKadminFinder():
             time.sleep(self.timeout)
 
             # Get connection to target and raise exception if have errors
-            req = requests.get('http://' + url, headers=self.header)
+            req = requests.get('http://' + url, headers=self.header, proxies=proxies)
             req.raise_for_status()
             return True
 
@@ -53,7 +53,7 @@ class OKadminFinder():
         return links
 
     @staticmethod
-    def createReqLink(site, subLink):
+    def createReqLink(site, subLink, proxies):
         """
         Create full link to potential admin panel site+sublink or subdomen+site
         :param site: string
