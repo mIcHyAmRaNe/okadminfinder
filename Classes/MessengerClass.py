@@ -7,9 +7,9 @@ class Messenger():
     """
 
     def __init__(self):
-        from colorama import Fore
+        from colorama import Fore, Back, Style
         # Creating styling for simple use
-        self.style = {'white': Fore.WHITE, 'red': Fore.RED, 'green': Fore.GREEN, 'yellow': Fore.YELLOW, 'blue': Fore.BLUE, 'cyan': Fore.CYAN}
+        self.style = {'white': Fore.WHITE+Style.NORMAL, 'red': Fore.RED+Style.NORMAL, 'green': Fore.GREEN+Style.NORMAL, 'yellow': Fore.YELLOW+Style.NORMAL, 'blue': Fore.BLUE+Style.NORMAL, 'cyan': Fore.CYAN+Style.NORMAL, 'bright' : Fore.GREEN+Style.BRIGHT}
 
 
     def writeMessage(self, message, color='white'):
@@ -33,7 +33,7 @@ class Messenger():
         try:
             return input(self.style[color] + message)
         except:
-            self.writeMessage('Invalid value. Try again', 'red')
+            self.writeMessage('  Invalid value. Try again', 'red')
             return self.writeInput(self.style[color] + message)
 
     def writeInput(self, message, color='white'):
@@ -46,7 +46,7 @@ class Messenger():
         try:
             return input(self.style[color] + message)
         except:
-            self.writeMessage('Invalid value. Try again', 'red')
+            self.writeMessage('  Invalid value. Try again', 'red')
             return self.writeInput(self.style[color] + message)
 
     def writeInputWithYesNo(self, message, color='white'):
@@ -56,11 +56,11 @@ class Messenger():
         :param color: string
         :return: input
         """
-        valueOfInput = self.writeInput('%s [Y][n]  $ ' % message, color)
+        valueOfInput = self.writeInput('%s [Y][n]  ~$ ' % message, color)
         if valueOfInput == '' or valueOfInput == 'y' or valueOfInput == 'Y':
             return True
         elif valueOfInput == 'n' or valueOfInput == 'N':
             return False
         else:
-            self.writeMessage('Invalid value %s. Try again' % valueOfInput, 'red')
+            self.writeMessage('  Invalid value %s. Try again' % valueOfInput, 'red')
             return self.writeInputWithYesNo(message, color)
