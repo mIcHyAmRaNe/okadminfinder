@@ -69,3 +69,7 @@ In Future
 #. Config file with network params, headers, random-agents etc.
 #. Multithreading work, for faster work. Adding more potential admin panel pages
 #. Console work with params, like: okadminfinder -u --proxy --threads
+
+Youtube videos:
+---------------
+`okadminfinder : admin page finder <https://youtu.be/DluCL4aA9UU/>`_
