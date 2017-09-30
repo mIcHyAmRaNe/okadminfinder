@@ -1,3 +1,4 @@
 colorama==0.3.9
 requests==2.18.4
-SocksiPy_branch==1.01
+SocksiPy_branch==1.1
+fake-useragent==0.1.7
