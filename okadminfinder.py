@@ -16,6 +16,7 @@ try:
     import sys
     from urllib.request import urlopen
     from colorama import Fore, Back, Style
+    from fake_useragent import UserAgent, FakeUserAgentError
 
     # Get Messenger class to print information
     messenger = MessengerClass.Messenger()
@@ -30,13 +31,21 @@ try:
     # Get main class object
     OKadminFinder = OKadminFinderClass.OKadminFinder()
 
-    # Add header from credits
-    OKadminFinder.header = {'user-agent': 'OKadminFinder/%s' % Credits.getCredits()[1]}
+    # Random UserAgent
+    try:
+        ua = UserAgent()
+        headers = {'user-agent': ua.random}
+    except FakeUserAgentError:
+        headers = {'user-agent': 'OKadminFinder/%s' % Credits.getCredits()[1]}
+        pass
+    OKadminFinder.header = headers
 
     # Additional params
     # if not messenger.writeInputWithYesNo(Fore.YELLOW + '  Do you want use default params?'):
     #     timeout = messenger.writeInput(Fore.YELLOW + '  Change timeout. Please write value in seconds: ' + Fore.GREEN)
     #     OKadminFinder.timeout = timeout
+
+    #Updater
 
     #network params
     choice=''
@@ -48,7 +57,7 @@ try:
     ├╼[3] nothing
     ┊
     └───╼['''+Fore.RED+'''Please choose one option'''+Fore.YELLOW+'''] ~$ ''')
-        if choice=='1' or choice=='tor':
+        if choice == '1' or choice == 'tor':
             socks.set_default_proxy(socks.SOCKS5, 'localhost', 9050)
             socket.socket = socks.socksocket
             urllib.request.urlopen
@@ -69,7 +78,7 @@ try:
     messenger.writeMessage('''    ┆
     ├─[Your IP address]
     ┆''','cyan');
-    print('    └─────►',requests.get('http://ip.42.pl/raw',proxies=proxies).text)
+    print('    └─────►',requests.get('https://api.ipify.org',proxies=proxies).text)
     print('')
     # Get site
     site = messenger.writeInput('  Enter Site Name  { example : example.com or www.example.com } \n' +Fore.BLUE +' ~$ ', 'white'); print ('')
