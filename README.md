@@ -22,7 +22,7 @@
         you can add an alias by adding this line: `okadminfinder=py -3 "%pentestbox_ROOT%/bin/Path/to/okadminfinder3/okadminfinder.py" $*` to `C://Pentestbox/bin/customtools/customaliases` file and so you'll be able to launch it using      `okadminfinder`
     
     
-    * ## Requirements
+* ## Requirements
     * #### Linux
     ```
     sudo apt install tor
