@@ -11,13 +11,13 @@ try:
 
     import urllib.request, urllib.error, urllib.parse
     import requests
+    import random
     import socket
     import socks
     import sys
     import time
     from urllib.request import urlopen
     from colorama import Fore, Back, Style
-    from fake_useragent import UserAgent, FakeUserAgentError
 
     # Get Messenger class to print information
     messenger = MessengerClass.Messenger()
@@ -33,11 +33,14 @@ try:
     OKadminFinder = OKadminFinderClass.OKadminFinder()
 
     # Random UserAgent
+    #Useragents are from: https://techblog.willshouse.com/2012/01/03/most-common-user-agents/
     try:
         print(Fore.BLUE+'\tGetting random user-agent...', end="\r")
         time.sleep(1)
-        ua = UserAgent()
-        headers = {'user-agent': ua.random}
+        useragent="LinkFile/user-agent.txt"
+        ua = open(useragent, 'r').read().splitlines()
+        rua = random.choice(ua)
+        headers = {'user-agent': rua}
         print(Fore.BLUE+'\tGetting random user-agent...', Fore.GREEN+Style.BRIGHT+'DONE\n'+Fore.WHITE+Style.NORMAL)
     except FakeUserAgentError:
         headers = {'user-agent': 'OKadminFinder/%s' % Credits.getCredits()[1]}
