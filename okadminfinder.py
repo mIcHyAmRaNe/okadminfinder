@@ -9,15 +9,15 @@ try:
                          OKadminFinderClass,
                          MessengerClass)
 
-    import urllib.request, urllib.error, urllib.parse
+    from colorama import Fore, Back, Style
     import requests
     import random
     import socket
     import socks
     import sys
     import time
+    import urllib.request, urllib.error, urllib.parse
     from urllib.request import urlopen
-    from colorama import Fore, Back, Style
 
     # Get Messenger class to print information
     messenger = MessengerClass.Messenger()
@@ -46,7 +46,7 @@ try:
         headers = {'user-agent': 'OKadminFinder/%s' % Credits.getCredits()[1]}
         pass
     OKadminFinder.header = headers
-
+    
     # Additional params
     # if not messenger.writeInputWithYesNo(Fore.YELLOW + '  Do you want use default params?'):
     #     timeout = messenger.writeInput(Fore.YELLOW + '  Change timeout. Please write value in seconds: ' + Fore.GREEN)
@@ -114,6 +114,12 @@ try:
 
     di = socket.gethostbyname(site)
     print(Fore.CYAN+Style.BRIGHT +'\tServer: ' + Fore.YELLOW + rh.headers['Server'] + '\t\t' + Fore.CYAN+Style.BRIGHT +'Hostname: ' + Fore.YELLOW + di + '\n')
+    try:
+        xf = dict(rh.headers).get("x-frame-options")
+        xf = str(xf)
+        print(Fore.CYAN+Style.BRIGHT +'\tX-Powered-By: ' + Fore.YELLOW + rh.headers['X-Powered-By'] + '\t\t' + Fore.CYAN+Style.BRIGHT +'X-Frame-Options: ' + Fore.YELLOW + xf + '\n\n')
+    except KeyError:
+        pass
 
     # Get links for checking
     urls = OKadminFinder.getUrls('LinkFile/adminpanellinks.txt')
