@@ -55,7 +55,9 @@ def url():
         site = args.url
         if OKadminFinder.checkUrl(site,proxies):
             messenger.writeMessage('\n  Site %s is stable\n' % site,'green')
-
+        else:
+            messenger.writeMessage('  Something wrong with url', 'red')
+            exit(SystemExit)
         # Get links for checking
         urls = OKadminFinder.getUrls('LinkFile/adminpanellinks.txt')
 
