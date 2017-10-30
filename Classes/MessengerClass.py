@@ -11,7 +11,8 @@ class Messenger():
         # Creating styling for simple use
         self.style = {'white': Fore.WHITE+Style.NORMAL, 'red': Fore.RED+Style.NORMAL, 
         'green': Fore.GREEN+Style.NORMAL, 'yellow': Fore.YELLOW+Style.NORMAL, 
-        'blue': Fore.BLUE+Style.NORMAL, 'cyan': Fore.CYAN+Style.NORMAL, 'bright' : Fore.GREEN+Style.BRIGHT}
+        'blue': Fore.BLUE+Style.NORMAL, 'cyan': Fore.CYAN+Style.NORMAL, 'bred' : Fore.RED+Style.BRIGHT, 
+        'bright' : Fore.GREEN+Style.BRIGHT, 'byellow' : Fore.YELLOW+Style.BRIGHT}
 
 
     def writeMessage(self, message, color='white'):
