@@ -37,8 +37,8 @@
 - [x] More than 500 potential admin panels 
 - [x] Tor & Proxy
 - [x] Random-agents
+- [x] Console work with params, like: `okadminfinder.py -u example.com --proxy 127.0.0.1:8080`
 - [ ] Multithreading, for faster work
-- [ ] Console work with params, like: `okadminfinder.py -u example.com --proxy 127.0.0.1:8080`
 - [ ] Adding more potential admin panel pages
     
 ## Youtube videos
