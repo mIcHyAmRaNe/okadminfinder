@@ -43,9 +43,7 @@ parser.add_argument("-r", "--random-agent", action='store_true', default=False,
 parser.add_argument("-v", "--verbose", action='store_true', default=False,
                     help="Display more informations")
 parser.add_argument("-i", "--interactive", action='store_true', default=False,
-                    help="Interactive interface" + Fore.RED+Style.BRIGH + "[other arguments not required]")
-parser.add_argument("-U", "--update", action='store_true', default=False,
-                    help="Update okadminfinder")
+                    help="Interactive interface" + Fore.RED+Style.BRIGHT + "[other arguments not required]")
 if len(sys.argv) <= 1:
     parser.print_usage()
     sys.exit(1)
