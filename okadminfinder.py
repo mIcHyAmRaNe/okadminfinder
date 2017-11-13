@@ -116,7 +116,7 @@ def rangent():
 
 
 def tor():
-    socks.set_default_proxy(socks.SOCKS5, 'localhost', 9050)
+    socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, 'localhost', 9050)
     socket.socket = socks.socksocket
     urllib.request.urlopen
 
@@ -224,7 +224,7 @@ def interactive():
     ┊
     └───╼''' + Fore.RED + ''' Please choose one option''' + Fore.YELLOW + ''' ~$ ''')
             if choice == '1' or choice == 'tor':
-                socks.set_default_proxy(socks.SOCKS5, 'localhost', 9050)
+                socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, 'localhost', 9050)
                 socket.socket = socks.socksocket
                 urllib.request.urlopen
                 proxies=""
