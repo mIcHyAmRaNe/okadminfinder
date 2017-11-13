@@ -26,6 +26,7 @@
     * #### Linux
     ```
     sudo apt install tor
+    sudo apt install python3-socks  (optional)
     pip3 install --user -r requirements.txt
     ```
     
