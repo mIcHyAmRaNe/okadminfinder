@@ -6,6 +6,7 @@
 %s/admin.php/
 %s/administrator/
 %s/login.php
+%s/admin.php
 %s/user/
 %s/usuarios/
 %s/usuario/
@@ -13,6 +14,7 @@
 %s/cpanel/
 %s/phpmyadmin/
 %s/cms/
+%s/users/
 %s/wp-login.php/
 %s/admin/login
 %s/auth/login/
@@ -23,6 +25,7 @@
 %s/bb-admin/
 %s/wp-admin/
 %s/wp-login/
+%s/wp-admin.php
 %s/userlogin/
 %s/logins/
 %s/login.html
@@ -61,7 +64,6 @@
 %s/admin_area/login.html
 %s/admin_area/index.html
 %s/admin/controlpanel.php
-%s/admin.php
 %s/admincp/index.asp
 %s/admincp/login.asp
 %s/admincp/index.html
@@ -272,7 +274,6 @@
 %s/modelsearch/
 %s/nsw/
 %s/rcjakar/
-%s/users/
 %s/private.php/
 %s/_vti_pvt/
 %s/_private/
