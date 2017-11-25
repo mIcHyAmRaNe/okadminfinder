@@ -154,9 +154,9 @@ def proxy():
 
 
 def ipinf():
-    ip = requests.get('http://ipinfo.io/ip', proxies=proxies, headers=OKadminFinder.header).text
-    cc = requests.get('http://ipinfo.io/country', proxies=proxies, headers=OKadminFinder.header).text
-    org = requests.get('http://ipinfo.io/org', proxies=proxies,  headers=OKadminFinder.header).text
+    ip = requests.get('http://ifconfig.co/ip', proxies=proxies, headers=OKadminFinder.header).text
+    cc = requests.get('http://ifconfig.co/country', proxies=proxies, headers=OKadminFinder.header).text
+    org = requests.get('http://ifconfig.co/hostname', proxies=proxies,  headers=OKadminFinder.header).text
     print('''    ┆
     ├───[''' + Fore.CYAN + '''IP address Infos:''' + Fore.YELLOW + ''']
     ┆''');
@@ -165,9 +165,9 @@ def ipinf():
 
 
 def vipinf():
-    ip = requests.get('http://ipinfo.io/ip', proxies=proxies, headers=OKadminFinder.header).text
-    cc = requests.get('http://ipinfo.io/country', proxies=proxies, headers=OKadminFinder.header).text
-    org = requests.get('http://ipinfo.io/org', proxies=proxies, headers=OKadminFinder.header).text
+    ip = requests.get('http://ifconfig.co/ip', proxies=proxies, headers=OKadminFinder.header).text
+    cc = requests.get('http://ifconfig.co/country', proxies=proxies, headers=OKadminFinder.header).text
+    org = requests.get('http://ifconfig.co/hostname', proxies=proxies, headers=OKadminFinder.header).text
     print('''
         ┌───[''' + Fore.CYAN + '''IP address Infos:''' + Fore.YELLOW + ''']
         ┆''');
@@ -251,9 +251,9 @@ def interactive():
                 proxies = ""
                 continue
 
-        ip = requests.get('http://ipinfo.io/ip', proxies=proxies, headers=OKadminFinder.header).text
-        cc = requests.get('http://ipinfo.io/country', proxies=proxies, headers=OKadminFinder.header).text
-        org = requests.get('http://ipinfo.io/org', proxies=proxies, headers=OKadminFinder.header).text
+        ip = requests.get('http://ifconfig.co/ip', proxies=proxies, headers=OKadminFinder.header).text
+        cc = requests.get('http://ifconfig.co/country', proxies=proxies, headers=OKadminFinder.header).text
+        org = requests.get('http://ifconfig.co/hostname', proxies=proxies, headers=OKadminFinder.header).text
         print('''    ┆
     ├───[''' + Fore.CYAN + '''IP address Infos:''' + Fore.YELLOW + ''']
     ┆''');
