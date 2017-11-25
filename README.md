@@ -1,7 +1,5 @@
 ## OKadminFinder: Easy way to find admin panel of site
 
-[![Join the chat at https://gitter.im/okadminfinder3/Lobby](https://badges.gitter.im/okadminfinder3/Lobby.svg)](https://gitter.im/okadminfinder3/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 *OKadminFinder is an Apache2 Licensed utility, rewritten in **Python 3.x**, for admins/pentesters who want to find admin panel of a website. There are many other tools but not as effective and secure. Yeah, Okadminfinder has the the ability to use tor and hide your identity*
 
 * ## Usage
@@ -33,7 +31,7 @@
     ```
     
     * #### Windows
-    download [tor expert bundle](https://www.torproject.org/dist/torbrowser/7.0.6/tor-win32-0.3.1.7.zip)  
+    download [tor expert bundle](https://www.torproject.org/dist/torbrowser/7.0.10/tor-win32-0.3.1.8.zip)  
     `pip3 install -r requirements.txt`
     
 ## Features
