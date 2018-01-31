@@ -45,3 +45,4 @@
     
 ## Youtube videos
 [okadminfinder : admin page finder](https://youtu.be/DluCL4aA9UU/)
+[okadminfinder3 : admin page finder (update)](https://youtu.be/iJg4NJT5qkY/)
