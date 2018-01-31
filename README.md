@@ -44,5 +44,5 @@
 - [ ] Adding more potential admin panel pages
     
 ## Youtube videos
-[okadminfinder : admin page finder](https://youtu.be/DluCL4aA9UU/)
-[okadminfinder3 : admin page finder (update)](https://youtu.be/iJg4NJT5qkY/)
+- [okadminfinder : admin page finder](https://youtu.be/DluCL4aA9UU/)
+- [okadminfinder3 : admin page finder (update)](https://youtu.be/iJg4NJT5qkY/)
