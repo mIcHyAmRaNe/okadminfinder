@@ -156,22 +156,24 @@ def proxy():
 def ipinf():
     ip = requests.get('http://ifconfig.co/ip', proxies=proxies, headers=OKadminFinder.header).text
     cc = requests.get('http://ifconfig.co/country', proxies=proxies, headers=OKadminFinder.header).text
-    org = requests.get('http://ifconfig.co/hostname', proxies=proxies,  headers=OKadminFinder.header).text
+    iso = requests.get('http://ifconfig.co/country-iso', proxies=proxies,  headers=OKadminFinder.header).text
+    city = requests.get('http://ifconfig.co/city', proxies=proxies,  headers=OKadminFinder.header).text
     print('''    ┆
     ├───[''' + Fore.CYAN + '''IP address Infos:''' + Fore.YELLOW + ''']
     ┆''');
-    print('    ├──► '+ Fore.BLUE +'Country: '+ cc + Fore.YELLOW +'    ├───► '+ Fore.BLUE +'IP: ' + ip + Fore.YELLOW + '    └────► '+ Fore.BLUE +'Organization: ' + org)
+    print('    ├──► '+ Fore.BLUE +'Country: '+ cc + Fore.YELLOW +'    ├───► '+ Fore.BLUE +'IP: ' + ip + Fore.YELLOW + '    └────► '+ Fore.BLUE +'Country ISO: ' + iso + Fore.YELLOW + '    └────► '+ Fore.BLUE +'City: ' + city)
     print('')
 
 
 def vipinf():
     ip = requests.get('http://ifconfig.co/ip', proxies=proxies, headers=OKadminFinder.header).text
     cc = requests.get('http://ifconfig.co/country', proxies=proxies, headers=OKadminFinder.header).text
-    org = requests.get('http://ifconfig.co/hostname', proxies=proxies, headers=OKadminFinder.header).text
+    iso = requests.get('http://ifconfig.co/country-iso', proxies=proxies, headers=OKadminFinder.header).text
+    city = requests.get('http://ifconfig.co/city', proxies=proxies,  headers=OKadminFinder.header).text
     print('''
         ┌───[''' + Fore.CYAN + '''IP address Infos:''' + Fore.YELLOW + ''']
         ┆''');
-    print('        ├──► ' + Fore.BLUE + 'Country: ' + cc + Fore.YELLOW + '        ├───► ' + Fore.BLUE + 'IP: ' + ip + Fore.YELLOW + '        └────► ' + Fore.BLUE + 'Organization: ' + org)
+    print('        ├──► ' + Fore.BLUE + 'Country: ' + cc + Fore.YELLOW + '        ├───► ' + Fore.BLUE + 'IP: ' + ip + Fore.YELLOW + '        └────► ' + Fore.BLUE + 'Country ISO: ' + iso + Fore.YELLOW + '    └────► '+ Fore.BLUE +'City: ' + city)
     print('')
 
 
@@ -253,11 +255,11 @@ def interactive():
 
         ip = requests.get('http://ifconfig.co/ip', proxies=proxies, headers=OKadminFinder.header).text
         cc = requests.get('http://ifconfig.co/country', proxies=proxies, headers=OKadminFinder.header).text
-        org = requests.get('http://ifconfig.co/hostname', proxies=proxies, headers=OKadminFinder.header).text
+        iso = requests.get('http://ifconfig.co/country-iso', proxies=proxies, headers=OKadminFinder.header).text
         print('''    ┆
     ├───[''' + Fore.CYAN + '''IP address Infos:''' + Fore.YELLOW + ''']
     ┆''');
-        print('    ├──► ' + Fore.BLUE +'Country: ' + cc + Fore.YELLOW + '    ├───► ' + Fore.BLUE +'IP: ' + ip + Fore.YELLOW + '    └────► '+ Fore.BLUE + 'Organization: ' + org)
+        print('    ├──► ' + Fore.BLUE +'Country: ' + cc + Fore.YELLOW + '    ├───► ' + Fore.BLUE +'IP: ' + ip + Fore.YELLOW + '    └────► '+ Fore.BLUE + 'Country ISO: ' + iso)
         print('')
         # Get site
         site = messenger.writeInput('  Enter Site Name  { example : example.com or www.example.com } \n' + Fore.BLUE + ' ~$ ', 'white');
