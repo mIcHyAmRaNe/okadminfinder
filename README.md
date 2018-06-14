@@ -31,7 +31,7 @@
     ```
     
     * #### Windows
-    download [tor expert bundle](https://www.torproject.org/dist/torbrowser/7.0.10/tor-win32-0.3.1.8.zip)  
+    download [tor expert bundle](https://www.torproject.org/dist/torbrowser/7.5.5/tor-win32-0.3.2.10.zip)  
     `pip3 install -r requirements.txt`
     
 ## Features
