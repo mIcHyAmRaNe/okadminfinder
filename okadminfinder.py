@@ -16,6 +16,7 @@ try:
     import socks
     import sys
     import time
+    from tqdm import tqdm
     import urllib.request, urllib.error, urllib.parse
     from urllib.request import urlopen
 
@@ -56,16 +57,16 @@ headers = {'user-agent': 'OKadminFinder/%s' % Credits.getCredits()[1]}
 OKadminFinder.header = headers
 
 
-def url():
+def url(site):
     try:
-        site = args.url
         if OKadminFinder.checkUrl(site, proxies):
             messenger.writeMessage('\n  Site %s is stable\n' % site, 'green')
+            urls = tqdm(OKadminFinder.getUrls('LinkFile/adminpanellinks.txt'), bar_format="{l_bar}{bar}|{n_fmt}/{total_fmt}{postfix}")
         else:
             messenger.writeMessage('  Something wrong with url', 'red')
+            urls = tqdm(OKadminFinder.getUrls('LinkFile/adminpanellinks.txt'), bar_format="{bar}")
             exit(SystemExit)
         # Get links for checking
-        urls = OKadminFinder.getUrls('LinkFile/adminpanellinks.txt')
 
         # Counters for total links, and admin panel find
         totalCount = len(urls)
@@ -76,8 +77,8 @@ def url():
 
             # Create test link with getting params from site and links.txt file
             reqLink = OKadminFinder.createReqLink(site, url, proxies)
-            messenger.writeMessage('\t[#] Checking http://' + reqLink, 'yellow')
-
+            # messenger.writeMessage('\t[#] Checking http://' + reqLink, 'yellow')
+            urls.set_description(Fore.WHITE + Style.NORMAL + "  Processing ...")
             # Test created link for HTTPerrors. If not error - potential admin panel
             if OKadminFinder.checkUrl(reqLink, proxies):
                 adminCount += 1
@@ -99,10 +100,12 @@ def url():
 
     except (KeyboardInterrupt, SystemExit):
         messenger.writeMessage('\n\t[x] Session Cancelled', 'red')
+        urls.close()
         messenger.writeMessage('', 'white')
 
     except():
         messenger.writeMessage('\n\t[x] Session Cancelled; Unknown error', 'red')
+
         messenger.writeMessage('', 'white')
 
 
@@ -161,7 +164,7 @@ def ipinf():
     print('''    ┆
     ├───[''' + Fore.CYAN + '''IP address Infos:''' + Fore.YELLOW + ''']
     ┆''');
-    print('    ├──► '+ Fore.BLUE +'Country: '+ cc + Fore.YELLOW +'    ├───► '+ Fore.BLUE +'IP: ' + ip + Fore.YELLOW + '    └────► '+ Fore.BLUE +'Country ISO: ' + iso + Fore.YELLOW + '    └────► '+ Fore.BLUE +'City: ' + city)
+    print('    ├──► '+ Fore.BLUE +'Country: '+ cc + Fore.YELLOW +'    ├───► '+ Fore.BLUE +'IP: ' + ip + Fore.YELLOW + '    ├────► '+ Fore.BLUE +'Country ISO: ' + iso + Fore.YELLOW + '    └────► '+ Fore.BLUE +'City: ' + city)
     print('')
 
 
@@ -173,7 +176,7 @@ def vipinf():
     print('''
         ┌───[''' + Fore.CYAN + '''IP address Infos:''' + Fore.YELLOW + ''']
         ┆''');
-    print('        ├──► ' + Fore.BLUE + 'Country: ' + cc + Fore.YELLOW + '        ├───► ' + Fore.BLUE + 'IP: ' + ip + Fore.YELLOW + '        └────► ' + Fore.BLUE + 'Country ISO: ' + iso + Fore.YELLOW + '    └────► '+ Fore.BLUE +'City: ' + city)
+    print('        ├──► ' + Fore.BLUE + 'Country: ' + cc + Fore.YELLOW + '        ├───► ' + Fore.BLUE + 'IP: ' + ip + Fore.YELLOW + '        ├────► ' + Fore.BLUE + 'Country ISO: ' + iso + Fore.YELLOW + '        └─────► '+ Fore.BLUE +'City: ' + city)
     print('')
 
 
@@ -256,10 +259,12 @@ def interactive():
         ip = requests.get('http://ifconfig.co/ip', proxies=proxies, headers=OKadminFinder.header).text
         cc = requests.get('http://ifconfig.co/country', proxies=proxies, headers=OKadminFinder.header).text
         iso = requests.get('http://ifconfig.co/country-iso', proxies=proxies, headers=OKadminFinder.header).text
+        city = requests.get('http://ifconfig.co/city', proxies=proxies,  headers=OKadminFinder.header).text
+
         print('''    ┆
     ├───[''' + Fore.CYAN + '''IP address Infos:''' + Fore.YELLOW + ''']
     ┆''');
-        print('    ├──► ' + Fore.BLUE +'Country: ' + cc + Fore.YELLOW + '    ├───► ' + Fore.BLUE +'IP: ' + ip + Fore.YELLOW + '    └────► '+ Fore.BLUE + 'Country ISO: ' + iso)
+        print('    ├──► ' + Fore.BLUE +'Country: ' + cc + Fore.YELLOW + '    ├───► ' + Fore.BLUE +'IP: ' + ip + Fore.YELLOW + '    ├────► '+ Fore.BLUE + 'Country ISO: ' + iso + Fore.YELLOW + '    └─────► '+ Fore.BLUE +'City: ' + city)
         print('')
         # Get site
         site = messenger.writeInput('  Enter Site Name  { example : example.com or www.example.com } \n' + Fore.BLUE + ' ~$ ', 'white');
@@ -371,4 +376,4 @@ if __name__ == '__main__':
     if args.url:
         site = args.url
         # proxies=""
-        url()
+        url(site)

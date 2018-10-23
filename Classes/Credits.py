@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-__version__ = '2.5'
+__version__ = '2.5.1'
 __author__ = 'O.Koleda'
-__improver__= 'Ghostboy-287'
+__improver__= 'mIcHy AmRaNe'
 
 def getCredits():
 
@@ -13,5 +13,5 @@ def getCredits():
   / /_/ / /| / /_/ / /_/ / / / / / / / / / / __/ / / / / / /_/ /  __/ /
   \____/_/ |_\__,_/\__,_/_/ /_/ /_/_/_/ /_/_/   /_/_/ /_/\__,_/\___/_/
      version %s created by %s & rewrited by %s
-	  
+
     ''' % (__version__, __author__, __improver__,), __version__
