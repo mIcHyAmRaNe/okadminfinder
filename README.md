@@ -1,3 +1,4 @@
+![](https://rawcdn.githack.com/mIcHyAmRaNe/okadminfinder3/ce4eaa2c8a322f4313816d2252b6ac4bc8dc5409/Classes/okadminfinder3-.svg)
 
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg)
 [![GitHub license](https://img.shields.io/github/license/mIcHyAmRaNe/okadminfinder3.svg)](https://github.com/mIcHyAmRaNe/okadminfinder3/blob/master/LICENSE)
