@@ -32,14 +32,14 @@
 
     * #### Linux
        ```
-       git clone https://github.com/Ghostboy-287/okadminfinder3.git
+       git clone https://github.com/mIcHyAmRaNe/okadminfinder3.git
        cd okadminfinder3
        chmod +x okadminfinder.py
        python3 okadminfinder.py
        ```
 
     * #### Windows
-       download & extract [zip](https://github.com/Ghostboy-287/okadminfinder3/archive/master.zip)
+       download & extract [zip](https://github.com/mIcHyAmRaNe/okadminfinder3/archive/master.zip)
        ```
        cd okadminfinder3
        py -3 okadminfinder.py
@@ -54,7 +54,7 @@
 - [x] Tor & Proxy
 - [x] Random-agents
 - [x] Console work with params, like: `okadminfinder.py -u example.com --proxy 127.0.0.1:8080`
-- [ ] Classify [admin panel links](https://github.com/Ghostboy-287/okadminfinder3/blob/master/LinkFile/adminpanellinks.txt) by popularity
+- [ ] Classify [admin panel links](https://github.com/mIcHyAmRaNe/okadminfinder3/blob/master/LinkFile/adminpanellinks.txt) by popularity
 - [ ] Multithreading, for faster work
 - [ ] Adding more potential admin panel pages
 
