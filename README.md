@@ -61,3 +61,4 @@
 ## Youtube videos
 - [okadminfinder : admin page finder](https://youtu.be/DluCL4aA9UU/)
 - [okadminfinder3 : admin page finder (update)](https://youtu.be/iJg4NJT5qkY/)
+- [admin panel finder Kali Linux 2018.3](https://youtu.be/kY9KeDqY5QQ)
