@@ -82,10 +82,10 @@ def url(site):
             # Test created link for HTTPerrors. If not error - potential admin panel
             if OKadminFinder.checkUrl(reqLink, proxies):
                 adminCount += 1
-                messenger.writeMessage('  %s %s' % ('\n  [✔] http://' + reqLink, 'Admin page found!'), 'bright')
+                messenger.writeMessage('  %s %s' % ('\n      [✔] http://' + reqLink, 'Admin page found!\n'), 'bright')
 
                 # Stopped process? and waiting for input for continue
-                messenger.writeInput('  Press enter to continue scanning.\n')
+                #messenger.writeInput('  Press enter to continue scanning.\n')
 
             # If HTTPerrors continue testing other links
             else:

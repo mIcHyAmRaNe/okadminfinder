@@ -13,6 +13,7 @@
 %s/Admin/
 %s/cpanel/
 %s/phpmyadmin/
+%s/dashboard
 %s/cms/
 %s/users/
 %s/wp-login.php/
@@ -39,6 +40,7 @@
 %s/forum/admin
 %s/adm/
 %s/cp/
+%s/vue-element-admin
 %s/admin/cp.php
 %s/cp.php
 %s/admincontrol/
@@ -57,6 +59,8 @@
 %s/admin/login.html
 %s/admin/admin.html
 %s/admin_area/index.php
+%s/dashboard.html
+%s/dashboard.php
 %s/bb-admin/index.php
 %s/bb-admin/login.php
 %s/bb-admin/admin.php
@@ -84,7 +88,7 @@
 %s/administrator/account.php
 %s/administrator.php
 %s/admin_area/admin.html
-%s/pages/admin/ 
+%s/pages/admin/
 %s/pages/admin/admin-login.php
 %s/admin/admin-login.php
 %s/admin-login.php
@@ -565,6 +569,6 @@
 %s/vadmind/
 %s/vmailadmin/
 %s/wizmysqladmin/
-%s/ccms/ 
-%s/ccms/login.php 
-%s/ccms/index.php 
+%s/ccms/
+%s/ccms/login.php
+%s/ccms/index.php

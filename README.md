@@ -21,15 +21,15 @@
        sudo apt install python3-socks  (optional)
        pip3 install --user -r requirements.txt
        ```
-    
+
     * #### Windows
-       download [tor expert bundle](https://www.torproject.org/dist/torbrowser/7.5.5/tor-win32-0.3.2.10.zip)  
+       download [tor expert bundle](https://dist.torproject.org/torbrowser/8.0.8/tor-win32-0.3.5.8.zip)
        `pip3 install -r requirements.txt`
 
 * ## Usage
     * #### Preview
        [![asciicast](https://asciinema.org/a/209959.png)](https://asciinema.org/a/209959)
-    
+
     * #### Linux
        ```
        git clone https://github.com/Ghostboy-287/okadminfinder3.git
@@ -37,27 +37,27 @@
        chmod +x okadminfinder.py
        python3 okadminfinder.py
        ```
-    
+
     * #### Windows
-       download & extract [zip](https://github.com/Ghostboy-287/okadminfinder3/archive/master.zip)  
+       download & extract [zip](https://github.com/Ghostboy-287/okadminfinder3/archive/master.zip)
        ```
        cd okadminfinder3
        py -3 okadminfinder.py
        ```
-    
-    * #### [Pentestbox](https://pentestbox.com) (same procedure as Linux)  
+
+    * #### [Pentestbox](https://pentestbox.com) (same procedure as Linux)
         you can add an alias by adding this line: `okadminfinder=py -3 "%pentestbox_ROOT%/bin/Path/to/okadminfinder3/okadminfinder.py" $*` to `C://Pentestbox/bin/customtools/customaliases` file and so you'll be able to launch it using      `okadminfinder`
-    
-    
+
+
 ## Features
-- [x] More than 500 potential admin panels 
+- [x] More than 500 potential admin panels
 - [x] Tor & Proxy
 - [x] Random-agents
 - [x] Console work with params, like: `okadminfinder.py -u example.com --proxy 127.0.0.1:8080`
 - [ ] Classify [admin panel links](https://github.com/Ghostboy-287/okadminfinder3/blob/master/LinkFile/adminpanellinks.txt) by popularity
 - [ ] Multithreading, for faster work
 - [ ] Adding more potential admin panel pages
-    
+
 ## Youtube videos
 - [okadminfinder : admin page finder](https://youtu.be/DluCL4aA9UU/)
 - [okadminfinder3 : admin page finder (update)](https://youtu.be/iJg4NJT5qkY/)

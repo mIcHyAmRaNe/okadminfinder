@@ -1,5 +1,5 @@
-colorama==0.4.0
-requests==2.20.0
+colorama==0.4.1
+requests==2.21.0
 PySocks==1.6.8
 argparse==1.4.0
-tqdm==4.28.1
+tqdm==4.31.1
