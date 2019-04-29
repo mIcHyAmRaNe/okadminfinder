@@ -47,7 +47,19 @@
 
     * #### [Pentestbox](https://pentestbox.com) (same procedure as Linux)
         you can add an alias by adding this line: `okadminfinder=py -3 "%pentestbox_ROOT%/bin/Path/to/okadminfinder3/okadminfinder.py" $*` to `C://Pentestbox/bin/customtools/customaliases` file and so you'll be able to launch it using      `okadminfinder`
+      
+    * ### Docker Build
 
+         ```
+         $ docker build -t xshuden/okadminfinder .
+         ```
+
+    * ### Docker Usage
+
+         ```
+         $ docker run --rm -it xshuden/okadminfinder
+         $ docker run --rm -it xshuden/okadminfinder -u google.com
+         ```
 
 ## Features
 - [x] More than 500 potential admin panels
