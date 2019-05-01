@@ -41,6 +41,8 @@ parser.add_argument("-p", "--proxy", default=False,
                     help="Use an HTTP proxy (e.g '127.0.0.1:8080')")
 parser.add_argument("-r", "--random-agent", action='store_true', default=False,
                     dest='rand', help="Use randomly selected User-Agent")
+parser.add_argument("-rp", "--random-proxy", action="store_true", default=False, 
+                    dest="rand_proxy", help="Use randomly selected proxy server")
 parser.add_argument("-v", "--verbose", action='store_true', default=False,
                     help="Display more informations")
 parser.add_argument("-i", "--interactive", action='store_true', default=False,
@@ -117,6 +119,19 @@ def rangent():
     OKadminFinder.header = headers
     return OKadminFinder.header
 
+def rproxy():
+    proxy_list = "LinkFile/proxy-list.txt"
+    proxy_type = None
+    pl = open(proxy_list, 'r').read().splitlines()
+    rp = random.choice(pl).split(':')
+    if rp[1] in ['80', '81', '8080', '3128']:
+        proxy_type = socks.PROXY_TYPE_HTTP
+    else:
+        proxy_type = socks.PROXY_TYPE_SOCKS5
+    print(f'addr {rp[0]} port {rp[1]}')
+    socks.setdefaultproxy(proxy_type, '202.166.206.9',30613)
+    socket.socket = socks.socksocket
+    urllib.request.urlopen
 
 def tor():
     socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, 'localhost', 9050)
@@ -338,6 +353,7 @@ if __name__ == '__main__':
         args.url = False
         args.tor = False
         args.rand = False
+        args.rand_proxy = False
         args.proxy = False
         args.verbose = False
         interactive()
@@ -348,6 +364,13 @@ if __name__ == '__main__':
             quit(0)
         else:
             rangent()
+    #random proxy server
+    if args.rand_proxy:
+        if args.url is False:
+            parser.print_usage()
+            quit(0)
+        else:
+            rproxy()
     # tor
     if args.tor:
         if args.url is False:
