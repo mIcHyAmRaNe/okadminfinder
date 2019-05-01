@@ -128,8 +128,7 @@ def rproxy():
         proxy_type = socks.PROXY_TYPE_HTTP
     else:
         proxy_type = socks.PROXY_TYPE_SOCKS5
-    print(f'addr {rp[0]} port {rp[1]}')
-    socks.setdefaultproxy(proxy_type, '202.166.206.9',30613)
+    socks.setdefaultproxy(proxy_type, rp[0],rp[1])
     socket.socket = socks.socksocket
     urllib.request.urlopen
 
