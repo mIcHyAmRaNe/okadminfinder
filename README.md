@@ -1,5 +1,6 @@
 ![](https://rawcdn.githack.com/mIcHyAmRaNe/okadminfinder3/ce4eaa2c8a322f4313816d2252b6ac4bc8dc5409/Classes/okadminfinder3-.svg)
 
+[![Build Status](https://travis-ci.org/mIcHyAmRaNe/okadminfinder3.svg?branch=master)](https://travis-ci.org/mIcHyAmRaNe/okadminfinder3)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg)
 [![GitHub license](https://img.shields.io/github/license/mIcHyAmRaNe/okadminfinder3.svg)](https://github.com/mIcHyAmRaNe/okadminfinder3/blob/master/LICENSE)
 ![](https://img.shields.io/badge/platform-linux%20%7C%20windows%20%7C%20osx-lightgrey.svg)
@@ -62,3 +63,9 @@
 - [okadminfinder : admin page finder](https://youtu.be/DluCL4aA9UU/)
 - [okadminfinder3 : admin page finder (update)](https://youtu.be/iJg4NJT5qkY/)
 - [admin panel finder Kali Linux 2018.3](https://youtu.be/kY9KeDqY5QQ)
+
+## Most Blogs that shared okadminfinder
+- [kitploit.com](https://www.kitploit.com/2019/04/okadminfinder3-admin-panel-finder-admin.html)
+- [securityonline.info](https://securityonline.info/admin-login-page-finder/)
+- [prodefence.org](https://www.prodefence.org/okadminfinder3-admin-login-page-finder/)
+- [kalilinuxtutorials.com](https://kalilinuxtutorials.com/okadminfinder-admin-panel/)
