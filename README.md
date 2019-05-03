@@ -53,8 +53,10 @@
 ## Features
 - [x] More than 500 potential admin panels
 - [x] Tor & Proxy
-- [x] Random-agents
+- [x] Random-Proxy
+- [x] Random-Agents
 - [x] Console work with params, like: `okadminfinder.py -u example.com --proxy 127.0.0.1:8080`
+- [x] Self-Update
 - [ ] Classify [admin panel links](https://github.com/mIcHyAmRaNe/okadminfinder3/blob/master/LinkFile/adminpanellinks.txt) by popularity
 - [ ] Multithreading, for faster work
 - [ ] Adding more potential admin panel pages
