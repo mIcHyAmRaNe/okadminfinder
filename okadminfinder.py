@@ -14,6 +14,7 @@ try:
     import requests
     import socket
     import socks
+    import subprocess
     import sys
     import time
     from tqdm import tqdm
@@ -39,10 +40,14 @@ parser.add_argument("-t", "--tor", action='store_true', default=False,
                     help="Use Tor anonymity network")
 parser.add_argument("-p", "--proxy", default=False,
                     help="Use an HTTP proxy (e.g '127.0.0.1:8080')")
+parser.add_argument("-rp", "--random-proxy", action="store_true", default=False,
+                    dest="random_proxy", help="Use randomly selected proxy server")
 parser.add_argument("-r", "--random-agent", action='store_true', default=False,
                     dest='rand', help="Use randomly selected User-Agent")
 parser.add_argument("-v", "--verbose", action='store_true', default=False,
                     help="Display more informations")
+parser.add_argument("-U", "--update", action='store_true', default=False,
+                    help="Update OKadminFinder")
 parser.add_argument("-i", "--interactive", action='store_true', default=False,
                     help="Interactive interface" + Fore.RED+Style.BRIGHT + "[other arguments not required]")
 if len(sys.argv) <= 1:
@@ -55,7 +60,6 @@ else:
 proxies = ""
 headers = {'user-agent': 'OKadminFinder/%s' % Credits.getCredits()[1]}
 OKadminFinder.header = headers
-
 
 def url(site):
     try:
@@ -108,8 +112,7 @@ def url(site):
 
         messenger.writeMessage('', 'white')
 
-
-def rangent():
+def random_agent():
     useragent = "LinkFile/user-agent.txt"
     ua = open(useragent, 'r').read().splitlines()
     rua = random.choice(ua)
@@ -117,12 +120,29 @@ def rangent():
     OKadminFinder.header = headers
     return OKadminFinder.header
 
+def random_proxy():
+    proxy_list = requests.get('https://raw.githubusercontent.com/a2u/free-proxy-list/master/free-proxy-list.txt').text.splitlines()
+    random_proxy = random.choice(proxy_list)
+    rip = random_proxy.rsplit(':', 1)[0] #random proxy ip
+    rpp = random_proxy.rsplit(':', 1)[1] #random proxy port
+    proxies = {
+        'http': random_proxy,
+        'https': random_proxy,
+    }
+    try:
+        s = socks.socksocket()
+        s.set_proxy(socks.HTTP, rip, rpp)
+        socket.socket = socks.socksocket
+        urllib.request.urlopen
+    except (IndexError, IndentationError):
+        messenger.writeMessage('\n\tSorry Error 😭 ', 'red')
+        quit(0)
+    return proxies
 
 def tor():
     socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, 'localhost', 9050)
     socket.socket = socks.socksocket
     urllib.request.urlopen
-
 
 def proxy():
     args.proxy=str(args.proxy)
@@ -155,7 +175,6 @@ def proxy():
         quit(0)
     return proxies
 
-
 def ipinf():
     ip = requests.get('http://ifconfig.co/ip', proxies=proxies, headers=OKadminFinder.header).text
     cc = requests.get('http://ifconfig.co/country', proxies=proxies, headers=OKadminFinder.header).text
@@ -167,7 +186,6 @@ def ipinf():
     print('    ├──► '+ Fore.BLUE +'Country: '+ cc + Fore.YELLOW +'    ├───► '+ Fore.BLUE +'IP: ' + ip + Fore.YELLOW + '    ├────► '+ Fore.BLUE +'Country ISO: ' + iso + Fore.YELLOW + '    └────► '+ Fore.BLUE +'City: ' + city)
     print('')
 
-
 def vipinf():
     ip = requests.get('http://ifconfig.co/ip', proxies=proxies, headers=OKadminFinder.header).text
     cc = requests.get('http://ifconfig.co/country', proxies=proxies, headers=OKadminFinder.header).text
@@ -178,7 +196,6 @@ def vipinf():
         ┆''');
     print('        ├──► ' + Fore.BLUE + 'Country: ' + cc + Fore.YELLOW + '        ├───► ' + Fore.BLUE + 'IP: ' + ip + Fore.YELLOW + '        ├────► ' + Fore.BLUE + 'Country ISO: ' + iso + Fore.YELLOW + '        └─────► '+ Fore.BLUE +'City: ' + city)
     print('')
-
 
 def hos():
     site = args.url
@@ -193,6 +210,10 @@ def hos():
     except KeyError:
         pass
 
+def update():
+    process = subprocess.Popen(["git", "pull"], stdout=subprocess.PIPE)
+    output = process.communicate()[0].decode("utf-8")
+    print(output)
 
 def interactive():
     try:
@@ -332,6 +353,14 @@ def interactive():
 
 if __name__ == '__main__':
     # Updater
+    if args.update:
+        args.url = False
+        args.tor = False
+        args.rand = False
+        args.proxy = False
+        args.verbose = False
+        args.interactive = False
+        update()
 
     # interactive
     if args.interactive:
@@ -341,13 +370,24 @@ if __name__ == '__main__':
         args.proxy = False
         args.verbose = False
         interactive()
+
     # random user-agent
     if args.rand:
         if args.url is False:
             parser.print_usage()
             quit(0)
         else:
-            rangent()
+            random_agent()
+
+    # random proxy
+    if args.random_proxy:
+        if args.url is False:
+            parser.print_usage()
+            quit(0)
+        else:
+            random_proxy()
+            proxies = random_proxy()
+
     # tor
     if args.tor:
         if args.url is False:
@@ -364,6 +404,7 @@ if __name__ == '__main__':
         else:
             proxy()
             proxies = proxy()
+
     # verbose
     if args.verbose:
         if args.url is False:
@@ -372,6 +413,7 @@ if __name__ == '__main__':
         else:
             vipinf()
             hos()
+
     # url
     if args.url:
         site = args.url

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-__version__ = '2.5.1'
+__version__ = '2.5.2'
 __author__ = 'O.Koleda'
 __improver__= 'mIcHy AmRaNe'
 
