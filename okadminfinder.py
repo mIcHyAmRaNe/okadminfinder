@@ -17,6 +17,7 @@ try:
     import subprocess
     import sys
     import time
+    import threading
     from tqdm import tqdm
     import urllib.request, urllib.error, urllib.parse
     from urllib.request import urlopen
@@ -86,10 +87,19 @@ def url(site):
             # Test created link for HTTPerrors. If not error - potential admin panel
             if OKadminFinder.checkUrl(reqLink, proxies):
                 adminCount += 1
-                messenger.writeMessage('  %s %s' % ('\n      [✔] http://' + reqLink, 'Admin page found!\n'), 'bright')
+
+                messenger.writeMessage('\n' + Fore.CYAN + Style.BRIGHT + '    {:<50}'.format('[✔] http://' + reqLink,) + Fore.GREEN + Style.BRIGHT + '{:>30}'.format('Admin page found!\n'), 'bright')
 
                 # Stopped process? and waiting for input for continue
-                #messenger.writeInput('  Press enter to continue scanning.\n')
+                n = 10
+                for x in range(totalCount):
+                    #what to do every time.
+                    if adminCount % n == 0:
+                        #what to do every nth time.
+                        messenger.writeInput('  Press' +Fore.BLUE+Style.BRIGHT+ ' ENTER ' +Fore.WHITE + Style.NORMAL + 'to continue scanning OR' +Fore.RED + Style.BRIGHT + ' CTRL+C ' + Fore.WHITE + Style.NORMAL + 'to cancel \n')
+                        break
+                    else:
+                        continue
 
             # If HTTPerrors continue testing other links
             else:
