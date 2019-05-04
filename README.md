@@ -1,4 +1,4 @@
-![](https://rawcdn.githack.com/mIcHyAmRaNe/okadminfinder3/ce4eaa2c8a322f4313816d2252b6ac4bc8dc5409/Classes/okadminfinder3-.svg)
+![](./Classes/okadminfinder3-.svg)
 
 [![Build Status](https://travis-ci.org/mIcHyAmRaNe/okadminfinder3.svg?branch=master)](https://travis-ci.org/mIcHyAmRaNe/okadminfinder3)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg)
