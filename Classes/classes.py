@@ -31,7 +31,7 @@ def credit():
     | |   | |  _   _(____ |/ _  |    \| |  _ (_   __| |  _ \ / _  | ___ |/ ___)
     | |___| | |  \ \/ ___ ( (_| | | | | | | | || |  | | | | ( (_| | ____| |
      \_____/|_|   \_\_____|\____|_|_|_|_|_| |_||_|  |_|_| |_|\____|_____|_|
-          version 12 created by 1 & rewrited by 2
+          version 2.6 created by O.Koleda & rewrited by mIcHy AmRaNe
 
         ''',RESET_ALL)
 
