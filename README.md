@@ -13,9 +13,9 @@
 * ## Requirements
     ![PyPI](https://img.shields.io/pypi/v/argparse.svg?label=argparse)
     ![PyPI](https://img.shields.io/pypi/v/colorama.svg?label=colorama)
-    ![PyPI](https://img.shields.io/pypi/v/PySocks.svg?label=PySocks)
+    ![PyPI](https://img.shields.io/pypi/v/httpx.svg?label=httpx)
+    ![PyPI](https://img.shields.io/pypi/v/trio.svg?label=trio)
     ![PyPI](https://img.shields.io/pypi/v/tqdm.svg?label=tqdm)
-    ![PyPI](https://img.shields.io/pypi/v/requests.svg?label=requests)
     * #### Linux
        ```
        sudo apt install tor
@@ -24,7 +24,7 @@
        ```
 
     * #### Windows
-       download [tor expert bundle](https://dist.torproject.org/torbrowser/8.0.8/tor-win32-0.3.5.8.zip)
+       download [tor expert bundle](https://dist.torproject.org/torbrowser/9.0.9/tor-win32-0.4.2.7.zip)
        `pip3 install -r requirements.txt`
 
 * ## Usage
@@ -46,20 +46,13 @@
        py -3 okadminfinder.py
        ```
 
-    * #### [Pentestbox](https://pentestbox.com) (same procedure as Linux)
-        you can add an alias by adding this line: `okadminfinder=py -3 "%pentestbox_ROOT%/bin/Path/to/okadminfinder3/okadminfinder.py" $*` to `C://Pentestbox/bin/customtools/customaliases` file and so you'll be able to launch it using      `okadminfinder`
-
-
 ## Features
 - [x] More than 500 potential admin panels
-- [x] Tor & Proxy
-- [x] Random-Proxy
+- [x] Console work with params, like: `okadminfinder.py -u https://example.com --proxy 127.0.0.1:8080`
 - [x] Random-Agents
-- [x] Console work with params, like: `okadminfinder.py -u example.com --proxy 127.0.0.1:8080`
-- [x] Self-Update
-- [ ] Classify [admin panel links](https://github.com/mIcHyAmRaNe/okadminfinder3/blob/master/LinkFile/adminpanellinks.txt) by popularity
-- [ ] Multithreading, for faster work
-- [ ] Adding more potential admin panel pages
+- [x] HTTP/HTTPS Proxies
+- [ ] Socks4/5 & Tor
+- [ ] Self-Update
 
 ## Youtube videos
 - [okadminfinder : admin page finder](https://youtu.be/DluCL4aA9UU/)
@@ -71,3 +64,7 @@
 - [securityonline.info](https://securityonline.info/admin-login-page-finder/)
 - [prodefence.org](https://www.prodefence.org/okadminfinder3-admin-login-page-finder/)
 - [kalilinuxtutorials.com](https://kalilinuxtutorials.com/okadminfinder-admin-panel/)
+- [onehack.us](https://onehack.us/t/how-to-find-website-admin-panel-using-okadminfinder-tool-easy-method/64840)
+- [the-realworld.org](https://the-realworld.org/okadminfinder-finder-du-panneau-dadministration-finder-admin-page-finder)
+- [crackitdown.com](https://www.crackitdown.com/2019/12/find-admin-panel-using-OkadminFinder.html)
+- [securitynewspaper.com](https://www.securitynewspaper.com/2020/01/02/find-hidden-admin-page-of-any-website/)
