@@ -1,5 +1,4 @@
-colorama==0.4.1
-requests==2.21.0
-PySocks==1.6.8
-argparse==1.4.0
-tqdm==4.31.1
+httpx>=0.12.1
+colorama>=0.4.3
+tqdm>=4.45.0
+trio>=0.13.0
