@@ -23,10 +23,6 @@
 
     * #### Windows
        download [tor expert bundle](https://dist.torproject.org/torbrowser/9.0.9/tor-win32-0.4.2.7.zip)
-<<<<<<< HEAD
-=======
-       `pip3 install -r requirements.txt`
->>>>>>> b28dd923c1a3d61ede88fa6d36de451a3c406ce8
 
 * ## Usage
     * #### Preview
@@ -37,12 +33,6 @@
        pip install --user okadminfinder
        okadminfinder --help
        ```
-<<<<<<< HEAD
-=======
-       cd okadminfinder3
-       py -3 okadminfinder.py
-       ```
->>>>>>> b28dd923c1a3d61ede88fa6d36de451a3c406ce8
 
 ## Features
 - [x] More than 500 potential admin panels
@@ -50,10 +40,6 @@
 - [x] Random-Agents
 - [x] HTTP/HTTPS Proxies
 - [ ] Socks4/5 & Tor
-<<<<<<< HEAD
-=======
-- [ ] Self-Update
->>>>>>> b28dd923c1a3d61ede88fa6d36de451a3c406ce8
 
 ## Youtube videos
 - [okadminfinder : admin page finder](https://youtu.be/DluCL4aA9UU/)
@@ -68,8 +54,4 @@
 - [onehack.us](https://onehack.us/t/how-to-find-website-admin-panel-using-okadminfinder-tool-easy-method/64840)
 - [the-realworld.org](https://the-realworld.org/okadminfinder-finder-du-panneau-dadministration-finder-admin-page-finder)
 - [crackitdown.com](https://www.crackitdown.com/2019/12/find-admin-panel-using-OkadminFinder.html)
-<<<<<<< HEAD
 - [securitynewspaper.com](https://www.securitynewspaper.com/2020/01/02/find-hidden-admin-page-of-any-website/)
-=======
-- [securitynewspaper.com](https://www.securitynewspaper.com/2020/01/02/find-hidden-admin-page-of-any-website/)
->>>>>>> b28dd923c1a3d61ede88fa6d36de451a3c406ce8

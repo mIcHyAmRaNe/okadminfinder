@@ -1,11 +1,4 @@
-<<<<<<< HEAD
 httpx>=0.12.1
 colorama>=0.4.3
 tqdm>=4.45.0
 trio>=0.13.0
-=======
-httpx==0.12.1
-colorama==0.4.3
-tqdm==4.41.0
-trio==0.13.0
->>>>>>> b28dd923c1a3d61ede88fa6d36de451a3c406ce8
