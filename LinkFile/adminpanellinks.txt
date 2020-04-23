@@ -285,6 +285,8 @@
 %s/admin2.html
 %s/yonetim.php
 %s/yonetim.html
+%s/nedmin/production/login.php
+%s/nedmin/production/index.php
 %s/yonetici.php
 %s/yonetici.html
 %s/admin1.asp
