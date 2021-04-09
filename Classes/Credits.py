@@ -12,6 +12,6 @@ def getCredits():
    / / / / ,< / __ `/ __  / __ `__ \/ / __ \/ /_  / / __ \/ __  / _ \/ ___/
   / /_/ / /| / /_/ / /_/ / / / / / / / / / / __/ / / / / / /_/ /  __/ /
   \____/_/ |_\__,_/\__,_/_/ /_/ /_/_/_/ /_/_/   /_/_/ /_/\__,_/\___/_/
-     version %s created by %s & rewrited by %s
+     version %s created by %s & rewritten by %s
 
     ''' % (__version__, __author__, __improver__,), __version__
