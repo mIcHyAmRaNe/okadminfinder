@@ -39,6 +39,8 @@ parser.add_argument("-u", "--url", default=False,
                     help="Target URL (e.g. 'www.example.com' or 'example.com')")
 parser.add_argument("-t", "--tor", action='store_true', default=False,
                     help="Use Tor anonymity network")
+parser.add_argument("-tp", "--tor-port", default=False,
+                    help="Specfy a TOR port (e.g '9150')")
 parser.add_argument("-p", "--proxy", default=False,
                     help="Use an HTTP proxy (e.g '127.0.0.1:8080')")
 parser.add_argument("-rp", "--random-proxy", action="store_true", default=False,
@@ -149,8 +151,14 @@ def random_proxy():
         quit(0)
     return proxies
 
+def tor_port():
+    if not args.tor_port:
+        args.tor_port = 9050
+    args.tor_port=int(args.tor_port)
+    return int(args.tor_port)
+    
 def tor():
-    socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, 'localhost', 9050)
+    socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, 'localhost', tor_port())
     socket.socket = socks.socksocket
     urllib.request.urlopen
 
@@ -260,7 +268,9 @@ def interactive():
     ┊
     └───╼''' + Fore.RED + ''' Please choose one option''' + Fore.YELLOW + ''' ~$ ''')
             if choice == '1' or choice == 'tor':
-                socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, 'localhost', 9050)
+                port = int(input('''    ┊
+    └────► set your TOR port {example:9150} : ~$ '''))
+                socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, 'localhost', port)
                 socket.socket = socks.socksocket
                 urllib.request.urlopen
                 proxies=""
@@ -366,6 +376,7 @@ if __name__ == '__main__':
     if args.update:
         args.url = False
         args.tor = False
+        args.tor_ort = False
         args.rand = False
         args.proxy = False
         args.verbose = False
@@ -376,6 +387,7 @@ if __name__ == '__main__':
     if args.interactive:
         args.url = False
         args.tor = False
+        args.tor_port = False
         args.rand = False
         args.proxy = False
         args.verbose = False
