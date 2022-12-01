@@ -1,3 +1,10 @@
+# Important note: 
+### Please check ![Okadminfinder](https://github.com/michyAmRaNe/okadminfinder) ***`PyPI version`*** which is easy to install, to update and works better :) 
+
+&nbsp;
+&nbsp;
+&nbsp;
+
 ![](./Classes/okadminfinder3-.svg)
 <p align="center">
   <a href="https://www.buymeacoffee.com/michyamrane" target="_blank">
@@ -34,7 +41,9 @@
 
 * ## Usage
     * #### Preview
-       [![asciicast](https://asciinema.org/a/209959.png)](https://asciinema.org/a/209959)
+       <a href="http://www.youtube.com/watch?feature=player_embedded&v=5C9aOinwKAs" target="_blank">
+        <img src="https://i.imgur.com/610tOPC.png" alt="Watch the video" border="10" />
+       </a>
 
     * #### Linux
        ```
@@ -67,9 +76,13 @@
 - [ ] Adding more potential admin panel pages
 
 ## Youtube videos
+- [okadminfinder : PyPi version](https://youtu.be/5C9aOinwKAs/)
 - [okadminfinder : admin page finder](https://youtu.be/DluCL4aA9UU/)
 - [okadminfinder3 : admin page finder (update)](https://youtu.be/iJg4NJT5qkY/)
 - [admin panel finder Kali Linux 2018.3](https://youtu.be/kY9KeDqY5QQ)
+
+## Youtube videos
+- [asciinema : okadminfinder](https://asciinema.org/a/209959)
 
 ## Most Blogs that shared okadminfinder
 - [kitploit.com](https://www.kitploit.com/2019/04/okadminfinder3-admin-panel-finder-admin.html)
