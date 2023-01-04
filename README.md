@@ -1,79 +1,70 @@
-# Important note: 
-### Please check ![Okadminfinder](https://github.com/michyAmRaNe/okadminfinder) ***`PyPI version`*** which is easy to install, to update and works better :) 
+![](https://gist.githubusercontent.com/mIcHyAmRaNe/0b370c808bd1a600778f6a3875e5a732/raw/35f2803c176eeb27d4eea5eac88087b0d78f0ecc/okadminfinder3-.png)
 
-&nbsp;
-&nbsp;
-&nbsp;
-
-![](./Classes/okadminfinder3-.svg)
-<p align="center">
-  <a href="https://www.buymeacoffee.com/michyamrane" target="_blank">
-    <img width="170" height="37" alt="Buy Me A Coffee" src="https://camo.githubusercontent.com/031fc5a134cdca5ae3460822aba371e63f794233/68747470733a2f2f7777772e6275796d6561636f666665652e636f6d2f6173736574732f696d672f637573746f6d5f696d616765732f6f72616e67655f696d672e706e67">
-  </a>
-</p>
-
-[![Build Status](https://travis-ci.org/mIcHyAmRaNe/okadminfinder3.svg?branch=master)](https://travis-ci.org/mIcHyAmRaNe/okadminfinder3)
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg)
-[![GitHub license](https://img.shields.io/github/license/mIcHyAmRaNe/okadminfinder3.svg)](https://github.com/mIcHyAmRaNe/okadminfinder3/blob/master/LICENSE)
+[![Build Status](https://travis-ci.org/mIcHyAmRaNe/okadminfinder3.svg?branch=master)](https://travis-ci.org/mIcHyAmRaNe/okadminfinder)
+[![GitHub license](https://img.shields.io/github/license/mIcHyAmRaNe/okadminfinder3.svg)](https://github.com/mIcHyAmRaNe/okadminfinder/blob/master/LICENSE)
 ![](https://img.shields.io/badge/platform-linux%20%7C%20windows%20%7C%20osx-lightgrey.svg)
-[![GitHub stars](https://img.shields.io/github/stars/mIcHyAmRaNe/okadminfinder3.svg?style=social)](https://github.com/mIcHyAmRaNe/okadminfinder3/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/mIcHyAmRaNe/okadminfinder3.svg?style=social)](https://github.com/mIcHyAmRaNe/okadminfinder/stargazers)
+[![Downloads](https://pepy.tech/badge/okadminfinder/week)](https://pepy.tech/project/okadminfinder)
+[![Downloads](https://pepy.tech/badge/okadminfinder)](https://pepy.tech/project/okadminfinder)
 
-## OKadminFinder: Easy way to find admin panel of site
+## OKadminFinder: Easy way to find admin panel of website
 
 *OKadminFinder is an Apache2 Licensed utility, rewritten in **Python 3.x**, for admins/pentesters who want to find admin panel of a website. There are many other tools but not as effective and secure. Yeah, Okadminfinder has the the ability to use tor and hide your identity*
 
 * ## Requirements
+    ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg)
     ![PyPI](https://img.shields.io/pypi/v/argparse.svg?label=argparse)
     ![PyPI](https://img.shields.io/pypi/v/colorama.svg?label=colorama)
-    ![PyPI](https://img.shields.io/pypi/v/PySocks.svg?label=PySocks)
+    ![PyPI](https://img.shields.io/pypi/v/httpx.svg?label=httpx)
+    ![PyPI](https://img.shields.io/pypi/v/trio.svg?label=trio)
     ![PyPI](https://img.shields.io/pypi/v/tqdm.svg?label=tqdm)
-    ![PyPI](https://img.shields.io/pypi/v/requests.svg?label=requests)
     * #### Linux
-       ```
-       sudo apt install tor
-       sudo apt install python3-socks  (optional)
-       pip3 install --user -r requirements.txt
+       ```bash
+       ❯ sudo apt install tor
+       ❯ sudo service tor start
        ```
 
     * #### Windows
-       download [tor expert bundle](https://dist.torproject.org/torbrowser/8.0.8/tor-win32-0.3.5.8.zip)
-       `pip3 install -r requirements.txt`
+       download [tor windows expert bundle](https://www.torproject.org/download/tor/)
 
-* ## Usage
-    * #### Preview
-       <a href="http://www.youtube.com/watch?feature=player_embedded&v=5C9aOinwKAs" target="_blank">
-        <img src="https://i.imgur.com/610tOPC.png" alt="Watch the video" border="10" />
-       </a>
+* ## Preview
+   <a href="http://www.youtube.com/watch?feature=player_embedded&v=5C9aOinwKAs" target="_blank">
+      <img src="https://i.imgur.com/610tOPC.png" alt="Watch the video" border="10" />
+   </a>
 
-    * #### Linux
-       ```
-       git clone https://github.com/mIcHyAmRaNe/okadminfinder3.git
-       cd okadminfinder3
-       chmod +x okadminfinder.py
-       python3 okadminfinder.py
-       ```
+* ## Installation
+      
+   * #### PyPi
+      ```bash
+      # Install
+      ❯ pip install okadminfinder
+      # Update
+      ❯ pip install --upgrade okadminfinder
+      # Remove
+      ❯ pip uninstall okadminfinder
 
-    * #### Windows
-       download & extract [zip](https://github.com/mIcHyAmRaNe/okadminfinder3/archive/master.zip)
-       ```
-       cd okadminfinder3
-       py -3 okadminfinder.py
-       ```
 
-    * #### [Pentestbox](https://pentestbox.com) (same procedure as Linux)
-        you can add an alias by adding this line: `okadminfinder=py -3 "%pentestbox_ROOT%/bin/Path/to/okadminfinder3/okadminfinder.py" $*` to `C://Pentestbox/bin/customtools/customaliases` file and so you'll be able to launch it using      `okadminfinder`
-
+      # Usage
+      ❯ okadminfinder -h
+      ```
+   
+   * #### Git Clone
+      ```bash
+      # Download and Usage
+      ❯ git clone https://github.com/mIcHyAmRaNe/okadminfinder3.git
+      ❯ cd okadminfinder3
+      ❯ chmod +x okadminfinder.py
+      ❯ ./okadminfinder.py -h
+      ```
 
 ## Features
-- [x] More than 500 potential admin panels
-- [x] Tor & Proxy
-- [x] Random-Proxy
+- [x] Multiplatforms `(Windows/Linux/MacOS)`
+- [x] Easy to install, update and even remove
+- [x] More than 1000 potential admin panels
+- [x] Console works with params, like: `❯ okadminfinder -u https://example.com --proxy 127.0.0.1:8080`
 - [x] Random-Agents
-- [x] Console work with params, like: `okadminfinder.py -u example.com --proxy 127.0.0.1:8080`
-- [x] Self-Update
-- [ ] Classify [admin panel links](https://github.com/mIcHyAmRaNe/okadminfinder3/blob/master/LinkFile/adminpanellinks.txt) by popularity
-- [ ] Multithreading, for faster work
-- [ ] Adding more potential admin panel pages
+- [x] HTTP/HTTPS Proxies
+- [x] Socks4/5 & Tor
 
 ## Youtube videos
 - [okadminfinder : PyPi version](https://youtu.be/5C9aOinwKAs/)
@@ -81,11 +72,12 @@
 - [okadminfinder3 : admin page finder (update)](https://youtu.be/iJg4NJT5qkY/)
 - [admin panel finder Kali Linux 2018.3](https://youtu.be/kY9KeDqY5QQ)
 
-## Youtube videos
-- [asciinema : okadminfinder](https://asciinema.org/a/209959)
-
 ## Most Blogs that shared okadminfinder
 - [kitploit.com](https://www.kitploit.com/2019/04/okadminfinder3-admin-panel-finder-admin.html)
 - [securityonline.info](https://securityonline.info/admin-login-page-finder/)
 - [prodefence.org](https://www.prodefence.org/okadminfinder3-admin-login-page-finder/)
 - [kalilinuxtutorials.com](https://kalilinuxtutorials.com/okadminfinder-admin-panel/)
+- [onehack.us](https://onehack.us/t/how-to-find-website-admin-panel-using-okadminfinder-tool-easy-method/64840)
+- [the-realworld.org](https://the-realworld.org/okadminfinder-finder-du-panneau-dadministration-finder-admin-page-finder)
+- [crackitdown.com](https://www.crackitdown.com/2019/12/find-admin-panel-using-OkadminFinder.html)
+- [securitynewspaper.com](https://www.securitynewspaper.com/2020/01/02/find-hidden-admin-page-of-any-website/)
