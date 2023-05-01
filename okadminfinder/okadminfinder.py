@@ -35,6 +35,12 @@ def main():
             help="Use Tor anonymity network",
         )
         parser.add_argument(
+            "-tp",
+            "--tor-port",
+            default=False,
+            help="Specfy a TOR port (e.g '9050')",
+        )
+        parser.add_argument(
             "-p",
             "--proxy",
             default=False,
@@ -54,15 +60,26 @@ def main():
             sys.exit(2)
         else:
             args = parser.parse_args()
-
+            
             # user-agent
             if args.rand:
                 headers = classes.get_agents()
             else:
                 headers = None
 
+            #tor            
+            if args.tor:
+                if args.url is False:
+                    parser.print_usage()
+                    quit(0)
+                else:
+                    if not args.tor_port:
+                        args.tor_port = 9050
+                    prox = str("socks5://localhost:"+args.tor_port)
+                    classes.proxy(prox, headers)
+                    proxies = classes.proxy(prox, headers)
             # proxy
-            if args.proxy:
+            elif args.proxy:
                 if args.url is False:
                     parser.print_usage()
                     quit(0)
@@ -71,7 +88,6 @@ def main():
                         prox = str(args.proxy)
                         classes.proxy(prox, headers)
                         proxies = classes.proxy(prox, headers)
-
                     else:
                         prox = str(args.proxy)
                         prox = {
