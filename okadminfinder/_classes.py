@@ -5,11 +5,12 @@ from sys import exit
 import contextlib
 import random
 import time
-
+from bs4 import BeautifulSoup
 import httpx
 import socksio
 from colorama import Fore, Style
 from tqdm.auto import tqdm
+import re
 
 import okadminfinder as meta
 
@@ -94,7 +95,8 @@ class okadminfinder:
         with httpx.Client(headers=headers, proxies=proxies) as client:
             try:
                 req = client.get(website)
-                req.raise_for_status
+                req.raise_for_status()
+                
                 return True
             except (httpx.HTTPError, httpx.NetworkError):
                 return False
@@ -173,7 +175,6 @@ class okadminfinder:
                         response = await client.get(url)
                         if (
                             response.status_code == httpx.codes.OK
-                            or response.status_code == httpx.codes.MOVED_PERMANENTLY
                         ):
                             tqdm.write(
                                 f"{green} ҂ Found: {cyan} {url} {RESET_ALL} \n"
