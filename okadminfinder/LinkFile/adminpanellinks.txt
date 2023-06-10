@@ -438,6 +438,8 @@ webadmin.{}
 {}/affiliate.php
 {}/alogin.aspx
 {}/apanel
+{}/app
+{}/app/
 {}/apanel/
 {}/auth
 {}/auth.php
@@ -456,6 +458,8 @@ webadmin.{}
 {}/autologin/
 {}/backend-admin/
 {}/backend/
+{}/backoffice
+{}/backoffice/
 {}/banneradmin
 {}/banneradmin/
 {}/base/admin
@@ -630,6 +634,7 @@ webadmin.{}
 {}/login.htm
 {}/login.html
 {}/login.php
+{}/Login.php
 {}/login/
 {}/login/login.php
 {}/login1
@@ -777,7 +782,9 @@ webadmin.{}
 {}/panel-administracion/login.html
 {}/panel-administracion/login.php
 {}/panel.php
+{}/panel
 {}/panel/
+{}/panel/panel/
 {}/panelc/
 {}/paneldecontrol/
 {}/pc
@@ -1059,6 +1066,12 @@ webadmin.{}
 {}/system-administration/
 {}/system_administration
 {}/system_administration/
+{}/tienda/admin
+{}/tienda/admin/
+{}/tpv
+{}/tpv/
+{}/tpv2
+{}/tpv2/
 {}/typo3
 {}/typo3/
 {}/ur-admin
