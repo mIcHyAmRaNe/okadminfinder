@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "okadminfinder"
-version = "1.0.0"
+version = "1.0.1"
 description = "[ Admin panel finder / Admin Login Page Finder ] ¢σ∂є∂ ву 👻 (❤-❤) 👻"
 authors = ["mIcHyAmRaNe <marseillaisanonymous@gmail.com>"]
 license = "Apache-2.0"

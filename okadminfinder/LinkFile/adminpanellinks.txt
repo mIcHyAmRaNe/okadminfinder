@@ -187,6 +187,7 @@ user.{}
 {}/auth
 {}/apanel
 {}/a
+{}/app
 {}/acart
 {}/access
 {}/account
@@ -211,6 +212,7 @@ user.{}
 {}/links/login.php
 {}/cms/_admin/logon.php
 {}/typo3
+{}/tienda/admin
 {}/pma
 {}/cms/login
 {}/access.php
