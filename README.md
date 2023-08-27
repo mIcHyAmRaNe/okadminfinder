@@ -1,11 +1,10 @@
 ![](https://gist.githubusercontent.com/mIcHyAmRaNe/0b370c808bd1a600778f6a3875e5a732/raw/35f2803c176eeb27d4eea5eac88087b0d78f0ecc/okadminfinder3-.png)
 
-[![Build Status](https://travis-ci.org/mIcHyAmRaNe/okadminfinder3.svg?branch=master)](https://travis-ci.org/mIcHyAmRaNe/okadminfinder)
 [![GitHub license](https://img.shields.io/github/license/mIcHyAmRaNe/okadminfinder3.svg)](https://github.com/mIcHyAmRaNe/okadminfinder/blob/master/LICENSE)
 ![](https://img.shields.io/badge/platform-linux%20%7C%20windows%20%7C%20osx-lightgrey.svg)
 [![GitHub stars](https://img.shields.io/github/stars/mIcHyAmRaNe/okadminfinder3.svg?style=social)](https://github.com/mIcHyAmRaNe/okadminfinder/stargazers)
-[![Downloads](https://pepy.tech/badge/okadminfinder/week)](https://pepy.tech/project/okadminfinder)
-[![Downloads](https://pepy.tech/badge/okadminfinder)](https://pepy.tech/project/okadminfinder)
+[![Downloads](https://static.pepy.tech/badge/okadminfinder/week)](https://pepy.tech/project/okadminfinder)
+[![Downloads](https://static.pepy.tech/badge/okadminfinder)](https://pepy.tech/project/okadminfinder)
 
 ## OKadminFinder: Easy way to find admin panel of website
 
