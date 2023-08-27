@@ -66,6 +66,10 @@ def main():
                 if args.url is False:
                     parser.print_usage()
                     quit(0)
+                elif args.tor is not False:
+                    parser.print_usage()
+                    print(" \n use only Tor or only Proxy not both at a time") 
+                    quit(0)
                 else:
                     if str(args.proxy)[0:5] == "socks":
                         prox = str(args.proxy)
@@ -80,6 +84,20 @@ def main():
                         }
                         classes.proxy(prox, headers)
                         proxies = classes.proxy(prox, headers)
+
+            if args.tor:
+                if args.url is False:
+                    parser.print_usage()
+                    quit(0)
+                elif args.proxy is not False:
+                    parser.print_usage()
+                    quit(0)
+                else:
+                    args.proxy = "socks5://127.0.0.1:9050"
+                    prox = str(args.proxy)
+                    classes.proxy(prox, headers)
+                    proxies = classes.proxy(prox, headers)
+
 
             else:
                 proxies = None
