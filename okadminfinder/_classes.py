@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-from os.path import dirname
+from os.path import dirname, isfile
 from sys import exit
 import contextlib
 import random
@@ -59,15 +59,35 @@ class okadminfinder:
                 agent = {"user-agent": rua.rstrip()}
             return agent
 
-    def get_links():
-        links_path = str(dirname(meta.__file__) + "/LinkFile/adminpanellinks.txt")
+    def get_links(dns=False, wordlist=None):
         links = []
+        
+        if dns and not wordlist:
+            links_path = str(dirname(meta.__file__) + "/LinkFile/subdomains-top1million-5000.txt")
+        elif wordlist:
+            if not isfile(wordlist):
+                print(red, "\n\tError: The wordlist file does not exist.", RESET_ALL)
+                exit(1)
+            links_path = str(wordlist)
+        else:
+            links_path = str(dirname(meta.__file__) + "/LinkFile/adminpanellinks.txt")
+
         with open(links_path, "r") as apl:
             for line in apl:
-                links.append(line.replace("\n", ""))
+                line = line.strip()
+                if dns:
+                    line = f"{line}.{{}}"
+                    links.append(line.replace("\n", ""))
+                if line.startswith("{}") or line.endswith("{}"):
+                    links.append(line.replace("\n", ""))
+                elif line.startswith("#"):
+                    pass
+                else:
+                    line = f"{{}}/{line}"
+                    links.append(line.replace("\n", ""))
         return links
 
-    def create_link(website):
+    def create_link(website, dns=False, wordlist=None):
         try:
             url = httpx.URL(website)
             reqlinks = []
@@ -80,12 +100,12 @@ class okadminfinder:
             )
         if url.host[0:4] == "www.":
             website = url.host.replace("www.", "")
-            for n in okadminfinder.get_links():
+            for n in okadminfinder.get_links(dns, wordlist):
                 req_link = url.scheme + "://" + n.format(website)
                 reqlinks.append(req_link.replace("\n", ""))
         else:
             website = url.host
-            for n in okadminfinder.get_links():
+            for n in okadminfinder.get_links(dns, wordlist):
                 req_link = url.scheme + "://" + n.format(website)
                 reqlinks.append(req_link.replace("\n", ""))
         return reqlinks
@@ -135,7 +155,7 @@ class okadminfinder:
             exit(0)
         return proxies
 
-    async def url(self, website, headers, proxies):
+    async def url(self, website, headers, proxies, dns=False, wordlist=None):
         try:
             if okadminfinder.check_url(website, headers, proxies):
                 print(
@@ -150,7 +170,7 @@ class okadminfinder:
             else:
                 print(red, DIM, "Seems something wrong with url", RESET_ALL)
                 exit(1)
-            urls = okadminfinder.create_link(website)
+            urls = okadminfinder.create_link(website, dns, wordlist)
             admin_count = 0
             total_count = len(urls)
             pbar = tqdm(
@@ -189,9 +209,9 @@ class okadminfinder:
                     ):
                         continue
                 pbar.close()
-            print("\n\n\t╔═══[✔️]", green, BOLD, " Completed", RESET_ALL)
-            print("\t╟───╸📑️", str(admin_count), "Admin pages found")
-            print("\t╚═══[📚️]", str(total_count), "total pages scanned")
+            print("\n\n\t╔═══[✓]", green, BOLD, "Completed", RESET_ALL)
+            print("\t╟───[⚛]", str(admin_count), "Pages found")
+            print("\t╚═══[∞︎︎]", str(total_count), "Total pages scanned")
         except (KeyboardInterrupt):
             pbar.close()
             print(red, "\n\tSession Canceled", RESET_ALL)

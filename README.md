@@ -60,6 +60,8 @@
 - [x] Multiplatforms `(Windows/Linux/MacOS)`
 - [x] Easy to install, update and even remove
 - [x] More than 1000 potential admin panels
+- [x] Ability to find subdomains (equivalent to fuzz.URL)
+- [x] Custom wordlist (e.g: /usr/share/wordlist/sub-domains.txt)
 - [x] Console works with params, like: `❯ okadminfinder -u https://example.com --proxy 127.0.0.1:8080`
 - [x] Random-Agents
 - [x] HTTP/HTTPS Proxies

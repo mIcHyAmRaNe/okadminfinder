@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "okadminfinder"
-version = "1.0.1"
+version = "1.1.0"
 description = "[ Admin panel finder / Admin Login Page Finder ] ¢σ∂є∂ ву 👻 (❤-❤) 👻"
 authors = ["mIcHyAmRaNe <marseillaisanonymous@gmail.com>"]
 license = "Apache-2.0"
 readme = "README.md"
 homepage = "https://michyamrane.github.io/tools/okadminfinder/"
-repository = "https://github.com/mIcHyAmRaNe/okadminfinder3"
+repository = "https://github.com/mIcHyAmRaNe/okadminfinder"
 keywords = ["security-scanner", "pentest-tool", "admin-page-finder", "okadminfinder"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -21,7 +21,7 @@ packages = [
 ]
 
 [tool.poetry.urls]
-"Bug Tracker" = "https://github.com/mIcHyAmRaNe/okadminfinder3/issues"
+"Bug Tracker" = "https://github.com/mIcHyAmRaNe/okadminfinder/issues"
 
 [tool.poetry.scripts]
 okadminfinder = "okadminfinder.okadminfinder:main"

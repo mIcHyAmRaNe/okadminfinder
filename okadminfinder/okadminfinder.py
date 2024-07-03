@@ -28,6 +28,20 @@ def main():
             help="Target URL (e.g. 'www.example.com' or 'example.com')",
         )
         parser.add_argument(
+            "-d",
+            "--dns",
+            action="store_true",
+            default=False,
+            help="Find DNS subdomains",
+        )
+        parser.add_argument(
+            "-w",
+            "--wordlist",
+            default=False,
+            metavar="file",
+            help="Custom wordlist (e.g. /usr/share/wordlist/sub-domains.txt)",
+        )
+        parser.add_argument(
             "-t",
             "--tor",
             action="store_true",
@@ -39,7 +53,7 @@ def main():
             "--proxy",
             default=False,
             help="""To use an HTTP(S) proxy (e.g '127.0.0.1:8080')
-                    To use an SOCKS(4/5) proxy (e.g 'socks5://127.0.0.1:8080'""",
+                    To use an SOCKS(4/5) proxy (e.g 'socks5://127.0.0.1:8080')""",
         )
         parser.add_argument(
             "-r",
@@ -98,14 +112,15 @@ def main():
                     classes.proxy(prox, headers)
                     proxies = classes.proxy(prox, headers)
 
-
             else:
                 proxies = None
 
             # url
             if args.url:
                 website = args.url
-                trio.run(classes.url, website, headers, proxies)
+                wordlist = args.wordlist
+                dns = args.dns
+                trio.run(classes.url, website, headers, proxies, dns, wordlist)
 
 
 if __name__ == "__main__":
