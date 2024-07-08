@@ -40,7 +40,7 @@ jobs:
         id: create_release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}  # Use your secret name here
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use your secret name here
         with:
           tag_name: ${{ github.ref_name }}
           release_name: "${{ github.ref_name }} Release"
