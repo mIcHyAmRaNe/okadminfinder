@@ -40,7 +40,7 @@ jobs:
         id: create_release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}  # Use your secret name here
         with:
           tag_name: ${{ github.ref_name }}
           release_name: "${{ github.ref_name }} Release"
@@ -51,7 +51,7 @@ jobs:
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}  # Use your secret name here
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: okadminfinder_${{ github.ref_name }}-1_all.deb
