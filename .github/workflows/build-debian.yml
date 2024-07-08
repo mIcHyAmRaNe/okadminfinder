@@ -1,4 +1,4 @@
-name: Build Debian Package
+name: Build and Upload Debian Package
 
 on:
   push:
@@ -28,9 +28,18 @@ jobs:
           cd ../okadminfinder
           dpkg-buildpackage -rfakeroot -uc -us
 
+      - name: List files in output directory
+        run: |
+          ls -l ../okadminfinder/*.deb  # Verify files are present
+
       - name: Upload Debian package artifacts
+        if: success()  # Only upload artifacts if the previous steps were successful
+        run: |
+          cd ..
+          ls -l okadminfinder/*.deb  # Double check files are visible from this directory
+          echo "::set-env name=DEB_FILES::$(echo okadminfinder/*.deb)"
         uses: actions/upload-artifact@v2
         with:
           name: okadminfinder-deb-package
-          path: okadminfinder_*.deb
-
+          path: ${{ env.DEB_FILES }}
+          if-no-files-found: warn
