@@ -22,10 +22,10 @@ jobs:
         run: |
           cd ..
           tar czf okadminfinder_1.1.0.orig.tar.gz okadminfinder
+          ls -ll
 
       - name: Build Debian package
         run: |
-          cd okadminfinder
           dpkg-buildpackage -rfakeroot -uc -us
 
       - name: List files in output directory
