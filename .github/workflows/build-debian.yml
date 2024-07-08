@@ -25,12 +25,12 @@ jobs:
 
       - name: Build Debian package
         run: |
-          cd ../okadminfinder
+          cd okadminfinder
           dpkg-buildpackage -rfakeroot -uc -us
 
       - name: List files in output directory
         run: |
-          ls -l ../okadminfinder/*.deb  # Verify files are present
+          ls -ll  # Verify files are present
 
       - name: Set up artifacts path
         id: set-artifacts-path
