@@ -32,14 +32,15 @@ jobs:
         run: |
           ls -l ../okadminfinder/*.deb  # Verify files are present
 
+      - name: Set up artifacts path
+        id: set-artifacts-path
+        run: |
+          echo "::set-output name=deb-path::$(echo ../okadminfinder/*.deb)"
+
       - name: Upload Debian package artifacts
         if: success()  # Only upload artifacts if the previous steps were successful
-        run: |
-          cd ..
-          ls -l okadminfinder/*.deb  # Double check files are visible from this directory
-          echo "::set-env name=DEB_FILES::$(echo okadminfinder/*.deb)"
         uses: actions/upload-artifact@v2
         with:
           name: okadminfinder-deb-package
-          path: ${{ env.DEB_FILES }}
+          path: ${{ steps.set-artifacts-path.outputs.deb-path }}
           if-no-files-found: warn
