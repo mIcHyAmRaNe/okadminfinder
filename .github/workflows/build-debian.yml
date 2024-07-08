@@ -32,4 +32,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: okadminfinder-deb-package
-          path: ../okadminfinder_*.deb
+          path: okadminfinder_*.deb
+
