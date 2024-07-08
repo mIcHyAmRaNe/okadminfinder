@@ -1,0 +1,55 @@
+.TH OKADMINFINDER 1 "July 2024" "version 1.1.0" "okadminfinder Manual"
+.SH NAME
+okadminfinder \- Easy way to find [Admin panel - Directories - Subdomains] of a website
+.SH SYNOPSIS
+.B okadminfinder
+[\fIOPTION\fR]...
+.SH DESCRIPTION
+OKadminFinder is a tool designed to identify and locate administrative panels, directories, and subdomains on a target website. It is useful for penetration testers, security researchers, and ethical hackers.
+.SH OPTIONS
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+Show this help message and exit.
+.TP
+\fB\-u\fR \fBURL\fR, \fB\-\-url\fR \fBURL\fR
+Specify the target URL (e.g. 'www.example.com' or 'example.com').
+.TP
+\fB\-d\fR, \fB\-\-dns\fR
+Enable DNS subdomain finding.
+.TP
+\fB\-w\fR \fBfile\fR, \fB\-\-wordlist\fR \fBfile\fR
+Use a custom wordlist (e.g. /usr/share/wordlist/sub-domains.txt).
+.TP
+\fB\-t\fR, \fB\-\-tor\fR
+Use the Tor anonymity network to conceal your IP address.
+.TP
+\fB\-p\fR \fBPROXY\fR, \fB\-\-proxy\fR \fBPROXY\fR
+Use an HTTP(S) proxy (e.g. '127.0.0.1:8080') or a SOCKS(4/5) proxy (e.g. 'socks5://127.0.0.1:8080').
+.TP
+\fB\-r\fR, \fB\-\-random\-agent\fR
+Use a randomly selected User-Agent for each request.
+.SH EXAMPLES
+.TP
+\fBokadminfinder \-u example.com\fR
+Scan the target website example.com for admin panels, directories, and subdomains.
+.TP
+\fBokadminfinder \-u example.com \-d\fR
+Scan the target website example.com for DNS subdomains.
+.TP
+\fBokadminfinder \-u example.com \-w /path/to/wordlist.txt\fR
+Scan the target website example.com using a custom wordlist located at /path/to/wordlist.txt.
+.TP
+\fBokadminfinder \-u example.com \-t\fR
+Scan the target website example.com using the Tor network.
+.TP
+\fBokadminfinder \-u example.com \-p 127.0.0.1:8080\fR
+Scan the target website example.com using an HTTP(S) proxy at 127.0.0.1:8080.
+.TP
+\fBokadminfinder \-u example.com \-r\fR
+Scan the target website example.com using a randomly selected User-Agent for each request.
+.SH BUGS
+Report bugs to https://github.com/michyamrane/okadminfinder/issues.
+.SH AUTHOR
+OKadminFinder was developed by mIcHy AmRaNe <6m63er17c@mozmail.com>.
+.SH COPYRIGHT
+This is free software: you are free to change and redistribute it. There is no warranty, to the extent permitted by law.

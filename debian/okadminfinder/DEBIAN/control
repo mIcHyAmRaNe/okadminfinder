@@ -1,0 +1,11 @@
+Package: okadminfinder
+Version: 1.1.0-1
+Architecture: all
+Maintainer: mIcHy AmRaNe <6m63er17c@mozmail.com>
+Installed-Size: 188
+Depends: python3 (>= 3.2), python3-colorama, python3-httpx, python3-tqdm, python3-trio, python3:any, python3-socksio, tor
+Section: utils
+Priority: optional
+Homepage: https://michyamrane.github.io/tools/okadminfinder/
+Description: [Admin panel - Directories - Subdomains] finder
+ OKadminFinder: find [Admin panel - Directories - Subdomains] of website

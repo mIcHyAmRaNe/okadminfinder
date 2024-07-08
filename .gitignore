@@ -1,4 +1,4 @@
-# Byte-compiled / optimized / DLL files
+# Byte-compiled / optimized Python files
 __pycache__/
 *.py[cod]
 *$py.class
@@ -26,8 +26,8 @@ wheels/
 *.egg
 
 # PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+# Usually these files are written by a python script from a template
+# before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
 
@@ -100,7 +100,42 @@ ENV/
 # mypy
 .mypy_cache/
 
+# pypirc
 .pypirc
 
 # poetry
 poetry.lock
+
+# Git repository
+.gitignore
+.gitattributes
+.git/
+
+# Debian packaging artifacts
+*.deb
+*.debhelper.log
+*.substvars
+debian/files
+debian/*.debhelper
+debian/*/*.debhelper
+debian/*.log
+debian/*.list
+
+# Compiled Python modules
+*.pybuild/
+*.pydistutils.cfg
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+
+# Miscellaneous
+.DS_Store
+Thumbs.db

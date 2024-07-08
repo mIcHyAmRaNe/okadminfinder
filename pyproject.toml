@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "okadminfinder"
 version = "1.1.0"
-description = "[ Admin panel finder / Admin Login Page Finder ] ¢σ∂є∂ ву 👻 (❤-❤) 👻"
-authors = ["mIcHyAmRaNe <marseillaisanonymous@gmail.com>"]
+description = "[Admin panel - Directories - Subdomains] finder ¢σ∂є∂ ву 👻 (❤-❤) 👻"
+authors = ["mIcHyAmRaNe <6m63er17c@mozmail.com>"]
 license = "Apache-2.0"
 readme = "README.md"
 homepage = "https://michyamrane.github.io/tools/okadminfinder/"

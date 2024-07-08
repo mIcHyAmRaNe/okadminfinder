@@ -1,0 +1,13 @@
+Source: okadminfinder
+Maintainer: mIcHy AmRaNe <6m63er17c@mozmail.com>
+Section: utils
+Priority: optional
+Build-Depends: python3-setuptools, python3-all, debhelper (>= 9)
+Standards-Version: 3.9.1
+Homepage: https://michyamrane.github.io/tools/okadminfinder/
+
+Package: okadminfinder
+Architecture: all
+Depends: ${python3:Depends}, ${misc:Depends}, python3-socksio, tor
+Description: [Admin panel - Directories - Subdomains] finder
+ OKadminFinder: find [Admin panel - Directories - Subdomains] of website
