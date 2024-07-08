@@ -28,14 +28,17 @@ jobs:
         run: |
           dpkg-buildpackage -rfakeroot -uc -us
 
+      - name: Move Debian package to working directory
+        run: |
+          mv ../*.deb .
+
       - name: List files in output directory
         run: |
           cd ..
           ls -ll  # Verify files are present
 
       - name: Upload Debian package artifacts
-        working-directory: ..
         uses: actions/upload-artifact@v2
         with:
           name: okadminfinder
-          path: ../okadminfinder_*.deb
+          path: okadminfinder_*.deb
