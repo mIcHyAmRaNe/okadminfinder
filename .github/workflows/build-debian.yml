@@ -3,7 +3,7 @@ name: Build and Upload Debian Package
 on:
   push:
     tags:
-      - '*' # This will trigger the workflow for any tag that starts with 'v': e.g. git tag 1.1.0
+      - '*' # This will trigger the workflow for any tag that starts with any character
 
 jobs:
   build:
@@ -40,7 +40,7 @@ jobs:
         id: create_release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use your secret name here
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref_name }}
           release_name: "${{ github.ref_name }} Release"
@@ -53,7 +53,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: okadminfinder_${{ github.ref_name }}-1_all.deb
-          asset_name: okadminfinder_${{ github.ref_name }}-1_all.deb
-          asset_content_type: application/octet-stream
+          upload_url: ${{ steps.create_release.outputs.upload_url
