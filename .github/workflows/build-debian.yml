@@ -3,7 +3,7 @@ name: Build and Upload Debian Package
 on:
   push:
     tags:
-      - 'v*' # This will trigger the workflow for any tag that starts with 'v' : git tag v1.1.0
+      - 'v*' # This will trigger the workflow for any tag that starts with 'v'
 
 jobs:
   build:
