@@ -2,8 +2,9 @@ Source: okadminfinder
 Maintainer: mIcHy AmRaNe <6m63er17c@mozmail.com>
 Section: utils
 Priority: optional
-Build-Depends: python3-setuptools, python3-all, debhelper (>= 9)
-Standards-Version: 3.9.1
+Build-Depends: debhelper (>= 10), dh-python, python3-setuptools, python3-all
+Standards-Version: 4.1.1
+X-Python3-Version: >= 3.7
 Homepage: https://michyamrane.github.io/tools/okadminfinder/
 
 Package: okadminfinder
