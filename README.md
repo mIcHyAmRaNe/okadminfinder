@@ -85,8 +85,10 @@
 
   * #### Debian
       ```bash
+      # Install Poetry
+      curl -sSL https://install.python-poetry.org | python3 -
       # Install buid requirements 
-      sudo apt install debhelper dh-python python3-setuptools python3-all
+      sudo apt install debhelper dh-python python3-setuptools python3-all pybuild-plugin-pyproject
       # Clone the repo
       git clone https://github.com/mIcHyAmRaNe/okadminfinder.git
       # Create the source tarball

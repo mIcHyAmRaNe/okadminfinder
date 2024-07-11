@@ -18,7 +18,7 @@ jobs:
           curl -sSL https://install.python-poetry.org | python3 -
           export PATH=$HOME/.local/bin:$PATH
           sudo apt-get update
-          sudo apt-get install -y build-essential debhelper dh-python python3-all
+          sudo apt-get install -y build-essential debhelper dh-python python3-all pybuild-plugin-pyproject
 
       - name: Prepare orig.tar.gz
         run: |
