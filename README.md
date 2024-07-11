@@ -8,7 +8,7 @@
 
 ## OKadminFinder: Easy way to find [Admin panel - Directories - Subdomains] of website
 
-*OKadminFinder is an Apache2 Licensed utility, rewritten in **Python 3.x**, for admins/pentesters who want to find admin panel of a website. There are many other tools but not as effective and secure. Yeah, Okadminfinder has the the ability to use tor and hide your identity*
+*OKadminFinder is an Apache2 Licensed utility, rewritten in **Python 3.x**, for admins/pentesters who want to find [Admin panel - Directories - Subdomains] of a website. There are many other tools but not as effective and secure. Yeah, Okadminfinder has the the ability to use tor and hide your identity*
 
 * ## Requirements
     ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg)
@@ -50,8 +50,9 @@
    * #### Git Clone
       ```bash
       # Download and Usage
-      ❯ git clone https://github.com/mIcHyAmRaNe/okadminfinder3.git
-      ❯ cd okadminfinder3
+      ❯ git clone https://github.com/mIcHyAmRaNe/okadminfinder.git
+      ❯ cd okadminfinder
+      ❯ pip3 install -r requirements.txt
       ❯ chmod +x okadminfinder.py
       ❯ ./okadminfinder.py -h
       ```
@@ -66,6 +67,46 @@
 - [x] Random-Agents
 - [x] HTTP/HTTPS Proxies
 - [x] Socks4/5 & Tor
+- [x] Debug mode
+
+## Developer section
+
+  * #### PyPi
+      ```bash
+      # Install Poetry
+      curl -sSL https://install.python-poetry.org | python3 -
+      # Clone the repo
+      git clone https://github.com/mIcHyAmRaNe/okadminfinder.git
+      # Build the project
+      poetry build
+      # Publish the package
+      poetry publish
+      ```
+
+  * #### Debian
+      ```bash
+      # Install buid requirements 
+      sudo apt install debhelper dh-python python3-setuptools python3-all
+      # Clone the repo
+      git clone https://github.com/mIcHyAmRaNe/okadminfinder.git
+      # Create the source tarball
+      tar czf okadminfinder_{version}.orig.tar.gz okadminfinder
+      # Get inside the project folder
+      cd okadminfinder
+      # Build the deb package
+      dpkg-buildpackage -rfakeroot -uc -us
+      
+      # Notes:
+      # Steps from Python to Debian.
+      # Install Stdeb
+      pip install stdeb
+      # Debianize Python package creating debian folder
+      python3 setup.py --command-packages=stdeb.command debianize
+      # we edit rules, control files, we create changelog, man pages...
+      # Build deb package
+      dpkg-buildpackage -rfakeroot -uc -us
+      # before building a new version, make sure to 
+   ```
 
 ## Youtube videos
 - [okadminfinder : PyPi version](https://youtu.be/5C9aOinwKAs/)

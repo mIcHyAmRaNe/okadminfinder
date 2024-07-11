@@ -18,6 +18,7 @@ red = Fore.RED
 cyan = Fore.CYAN
 green = Fore.GREEN
 magenta = Fore.MAGENTA
+yellow = Fore.YELLOW
 RESET = Fore.RESET
 DIM = Style.DIM
 NORMAL = Style.NORMAL
@@ -51,6 +52,9 @@ class okadminfinder:
             green, DIM, f"\tTime needed : {(time.time() - t0):.2f}", RESET_ALL
         )  # noqa: E501
 
+    def get_debug(self, value):
+        print(f"{yellow}{BOLD} {self} {RESET_ALL} : {value}\n")
+
     def get_agents(self):
         agents_path = str(dirname(meta.__file__) + "/LinkFile/user-agent.txt")
         with open(agents_path, "r") as ua:
@@ -59,9 +63,9 @@ class okadminfinder:
                 agent = {"user-agent": rua.rstrip()}
             return agent
 
-    def get_links(dns=False, wordlist=None):
+    def get_links(dns=False, wordlist=None, debug=False):
         links = []
-        
+
         if dns and not wordlist:
             links_path = str(dirname(meta.__file__) + "/LinkFile/subdomains-top1million-5000.txt")
         elif wordlist:
@@ -85,9 +89,12 @@ class okadminfinder:
                 else:
                     line = f"{{}}/{line}"
                     links.append(line.replace("\n", ""))
+            if debug:
+                okadminfinder.get_debug("LINKS: ",links)
         return links
 
-    def create_link(website, dns=False, wordlist=None):
+    def create_link(website, dns=False, wordlist=None, debug=False):
+        # check URL validity
         try:
             url = httpx.URL(website)
             reqlinks = []
@@ -98,16 +105,27 @@ class okadminfinder:
             Valid URL: http://example.com, http://www.example.com
             """
             )
-        if url.host[0:4] == "www.":
-            website = url.host.replace("www.", "")
-            for n in okadminfinder.get_links(dns, wordlist):
+
+        # Extract the host and port
+        host = url.host
+        if url.port:
+            host += f":{url.port}"
+        
+        # Handle case where the URL starts with 'www.'
+        if host.startswith("www."):
+            website = host.replace("www.", "")
+            for n in okadminfinder.get_links(dns, wordlist, debug):
                 req_link = url.scheme + "://" + n.format(website)
                 reqlinks.append(req_link.replace("\n", ""))
         else:
-            website = url.host
-            for n in okadminfinder.get_links(dns, wordlist):
+            website = host
+            for n in okadminfinder.get_links(dns, wordlist, debug):
                 req_link = url.scheme + "://" + n.format(website)
                 reqlinks.append(req_link.replace("\n", ""))
+        
+        # debug mode
+        if debug:
+            okadminfinder.get_debug("ReqLinks: ", reqlinks)
         return reqlinks
 
     def check_url(website, headers, proxies):
@@ -155,7 +173,7 @@ class okadminfinder:
             exit(0)
         return proxies
 
-    async def url(self, website, headers, proxies, dns=False, wordlist=None):
+    async def url(self, website, headers, proxies, dns=False, wordlist=None, debug=False):
         try:
             if okadminfinder.check_url(website, headers, proxies):
                 print(
@@ -170,7 +188,7 @@ class okadminfinder:
             else:
                 print(red, DIM, "Seems something wrong with url", RESET_ALL)
                 exit(1)
-            urls = okadminfinder.create_link(website, dns, wordlist)
+            urls = okadminfinder.create_link(website, dns, wordlist, debug)
             admin_count = 0
             total_count = len(urls)
             pbar = tqdm(
@@ -205,13 +223,17 @@ class okadminfinder:
                         httpx.NetworkError,
                         httpx.ReadTimeout,
                         httpx.ConnectTimeout,
-                        httpx.ProxyError,
+                        httpx.ProxyError
                     ):
                         continue
                 pbar.close()
             print("\n\n\t╔═══[✓]", green, BOLD, "Completed", RESET_ALL)
             print("\t╟───[⚛]", str(admin_count), "Pages found")
             print("\t╚═══[∞︎︎]", str(total_count), "Total pages scanned")
+        except (httpx.RemoteProtocolError):
+            pbar.close()
+            print(red, "\n\tSession Canceled: Server disconnected without sending a response.", RESET_ALL)
+            exit(0)
         except (KeyboardInterrupt):
             pbar.close()
             print(red, "\n\tSession Canceled", RESET_ALL)

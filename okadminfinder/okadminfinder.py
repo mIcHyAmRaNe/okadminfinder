@@ -63,6 +63,13 @@ def main():
             dest="rand",
             help="Use randomly selected User-Agent",
         )
+        parser.add_argument(
+            "-D",
+            "--debug",
+            action="store_true",
+            default=False,
+            help="Debug mode"
+        )
         if len(sys.argv) <= 1:
             parser.print_usage()
             sys.exit(2)
@@ -115,12 +122,18 @@ def main():
             else:
                 proxies = None
 
+            # debug
+            if args.debug:
+                debug = args.debug
+            else:
+                debug = False
+
             # url
             if args.url:
                 website = args.url
                 wordlist = args.wordlist
                 dns = args.dns
-                trio.run(classes.url, website, headers, proxies, dns, wordlist)
+                trio.run(classes.url, website, headers, proxies, dns, wordlist, debug)
 
 
 if __name__ == "__main__":

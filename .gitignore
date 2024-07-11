@@ -120,6 +120,7 @@ debian/*.debhelper
 debian/*/*.debhelper
 debian/*.log
 debian/*.list
+debian/okadminfinder/
 
 # Compiled Python modules
 *.pybuild/
