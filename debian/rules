@@ -7,7 +7,7 @@
 	dh $@ --with python3 --buildsystem=pybuild
 
 override_dh_auto_clean:
-	poetry run python -m pip uninstall -y okadminfinder
+	poetry run python3 -m pip uninstall -y okadminfinder
 	find . -name '*.pyc' -delete
 	dh_auto_clean
 
