@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
 from os.path import dirname, isfile
 from sys import exit
 import contextlib
@@ -67,7 +68,9 @@ class okadminfinder:
         links = []
 
         if dns and not wordlist:
-            links_path = str(dirname(meta.__file__) + "/LinkFile/subdomains-top1million-5000.txt")
+            links_path = str(
+                dirname(meta.__file__) + "/LinkFile/subdomains-top1million-5000.txt"
+            )
         elif wordlist:
             if not isfile(wordlist):
                 print(red, "\n\tError: The wordlist file does not exist.", RESET_ALL)
@@ -90,7 +93,7 @@ class okadminfinder:
                     line = f"{{}}/{line}"
                     links.append(line.replace("\n", ""))
             if debug:
-                okadminfinder.get_debug("LINKS: ",links)
+                okadminfinder.get_debug("LINKS: ", links)
         return links
 
     def create_link(website, dns=False, wordlist=None, debug=False):
@@ -110,7 +113,7 @@ class okadminfinder:
         host = url.host
         if url.port:
             host += f":{url.port}"
-        
+
         # Handle case where the URL starts with 'www.'
         if host.startswith("www."):
             website = host.replace("www.", "")
@@ -122,7 +125,7 @@ class okadminfinder:
             for n in okadminfinder.get_links(dns, wordlist, debug):
                 req_link = url.scheme + "://" + n.format(website)
                 reqlinks.append(req_link.replace("\n", ""))
-        
+
         # debug mode
         if debug:
             okadminfinder.get_debug("ReqLinks: ", reqlinks)
@@ -173,7 +176,9 @@ class okadminfinder:
             exit(0)
         return proxies
 
-    async def url(self, website, headers, proxies, dns=False, wordlist=None, debug=False):
+    async def url(
+        self, website, headers, proxies, dns=False, wordlist=None, debug=False
+    ):
         try:
             if okadminfinder.check_url(website, headers, proxies):
                 print(
@@ -223,7 +228,7 @@ class okadminfinder:
                         httpx.NetworkError,
                         httpx.ReadTimeout,
                         httpx.ConnectTimeout,
-                        httpx.ProxyError
+                        httpx.ProxyError,
                     ):
                         continue
                 pbar.close()
@@ -232,7 +237,11 @@ class okadminfinder:
             print("\t╚═══[∞︎︎]", str(total_count), "Total pages scanned")
         except (httpx.RemoteProtocolError):
             pbar.close()
-            print(red, "\n\tSession Canceled: Server disconnected without sending a response.", RESET_ALL)
+            print(
+                red,
+                "\n\tSession Canceled: Server disconnected without sending a response.",
+                RESET_ALL,
+            )
             exit(0)
         except (KeyboardInterrupt):
             pbar.close()

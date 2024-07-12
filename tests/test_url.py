@@ -1,5 +1,7 @@
-import pytest
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
+import pytest
 from okadminfinder._classes import okadminfinder
 
 

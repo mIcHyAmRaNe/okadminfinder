@@ -64,11 +64,7 @@ def main():
             help="Use randomly selected User-Agent",
         )
         parser.add_argument(
-            "-D",
-            "--debug",
-            action="store_true",
-            default=False,
-            help="Debug mode"
+            "-D", "--debug", action="store_true", default=False, help="Debug mode"
         )
         if len(sys.argv) <= 1:
             parser.print_usage()
@@ -89,7 +85,7 @@ def main():
                     quit(0)
                 elif args.tor is not False:
                     parser.print_usage()
-                    print(" \n use only Tor or only Proxy not both at a time") 
+                    print(" \n use only Tor or only Proxy not both at a time")
                     quit(0)
                 else:
                     if str(args.proxy)[0:5] == "socks":

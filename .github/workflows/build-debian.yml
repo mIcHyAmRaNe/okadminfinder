@@ -26,6 +26,10 @@ jobs:
           tar czf okadminfinder_${{ github.ref_name }}.orig.tar.gz okadminfinder
           ls -ll
 
+      - name: Clean before build
+        run: |
+          fakeroot debian/rules clean
+
       - name: Build Debian package
         run: |
           dpkg-buildpackage -rfakeroot -uc -us
