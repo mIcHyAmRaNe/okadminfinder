@@ -27,10 +27,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y build-essential debhelper dh-python python3-all pybuild-plugin-pyproject
 
-      - name: Clean before build
-        run: |
-          fakeroot debian/rules clean
-
       - name: Prepare orig.tar.gz
         run: |
           cd ..
@@ -39,6 +35,7 @@ jobs:
 
       - name: Build Debian package
         run: |
+          export PYTHON=python3
           dpkg-buildpackage -rfakeroot -uc -us
 
       - name: Copy Debian package to working directory
