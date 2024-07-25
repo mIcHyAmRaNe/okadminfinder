@@ -107,7 +107,7 @@
       # we edit rules, control files, we create changelog, man pages...
       # Build deb package
       dpkg-buildpackage -rfakeroot -uc -us
-      # before building a new version, make sure to 
+      # before building a new version, make sure to clean it first
    ```
 
 ## Youtube videos
