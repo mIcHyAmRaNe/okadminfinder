@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "okadminfinder"
-version = "1.1.1"
+version = "1.1.2"
 description = "[Admin panel - Directories - Subdomains] finder ¢σ∂є∂ ву 👻 (❤-❤) 👻"
 authors = ["mIcHyAmRaNe <6m63er17c@mozmail.com>"]
 license = "Apache-2.0"

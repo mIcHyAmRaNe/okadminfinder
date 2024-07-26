@@ -15,7 +15,15 @@ override_dh_auto_build:
 	poetry build
 
 override_dh_auto_install:
+
+	# Install the package using pybuild
+	dh_auto_install --buildsystem=pybuild --destdir=debian/okadminfinder/
 	poetry run pip3 install . --no-deps --force --root=debian/okadminfinder --no-compile --prefix=/usr
+
+	# Install the entry point script
+	install -Dm755 debian/okadminfinder.script debian/okadminfinder/usr/bin/okadminfinder
+
+	## poetry run pip3 install . --no-deps --force --root=debian/okadminfinder --no-compile --prefix=/usr
 	# poetry install --no-root --only main --no-interaction --no-ansi
 
 override_dh_installman:
