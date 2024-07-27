@@ -16,7 +16,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.10'
 
       - name: Install build dependencies
         run: |
@@ -34,7 +34,7 @@ jobs:
 
       - name: Build Debian package
         run: |
-          export PYTHON=python3.11
+          export PYTHON=python3.10
           python3 -V
           dpkg-buildpackage -rfakeroot -uc -us
 
