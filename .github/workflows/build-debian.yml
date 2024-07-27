@@ -34,7 +34,8 @@ jobs:
 
       - name: Build Debian package
         run: |
-          export PYTHON=python3
+          export PYTHON=python3.11
+          python3 -V
           dpkg-buildpackage -rfakeroot -uc -us
 
       - name: Copy Debian package to working directory
