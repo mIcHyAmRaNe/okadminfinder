@@ -1,43 +1,59 @@
-[tool.poetry]
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
 name = "okadminfinder"
-version = "1.1.2"
-description = "[Admin panel - Directories - Subdomains] finder ¢σ∂є∂ ву 👻 (❤-❤) 👻"
-authors = ["mIcHyAmRaNe <6m63er17c@mozmail.com>"]
-license = "Apache-2.0"
+version = "2.0.0"
+description = "OKadminFinder: open-source tool designed to help administrators and penetration testers discover admin panels, directories, and subdomains of a website."
 readme = "README.md"
-homepage = "https://michyamrane.github.io/tools/okadminfinder/"
-repository = "https://github.com/mIcHyAmRaNe/okadminfinder"
-keywords = ["security-scanner", "pentest-tool", "admin-page-finder", "okadminfinder"]
-classifiers = [
-    "Development Status :: 5 - Production/Stable",
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: Apache Software License",
-    "Operating System :: OS Independent",
-    "Intended Audience :: Information Technology",
-    "Natural Language :: English"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+keywords = ["admin panel", "admin", "panel", "finder", "directory", "fuzz", "subdomain", "security", "pentest", "okadminfinder", "web"]
+authors = [
+    {name = "mIcHyAmRaNe", email = "6m63er17c@mozmail.com"}
 ]
-packages = [
-    { include = "okadminfinder" }
+maintainers = [
+    {name = "mIcHyAmRaNe", email = "6m63er17c@mozmail.com"}
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "typer>=0.15.1",
+    "rich>=13.9.4 ",
+    "urllib3[socks]>=2.3.0",
+    "pyyaml>=6.0.2",
+    "diskcache>=5.6.3",
 ]
 
-[tool.poetry.urls]
+[project.urls]
+"Homepage" = "https://github.com/mIcHyAmRaNe/okadminfinder"
+"Repository" = "https://github.com/mIcHyAmRaNe/okadminfinder"
 "Bug Tracker" = "https://github.com/mIcHyAmRaNe/okadminfinder/issues"
 
-[tool.poetry.scripts]
-okadminfinder = "okadminfinder.okadminfinder:main"
+[project.scripts]
+okadminfinder = "okadminfinder.app:run"
 
-[tool.poetry.dependencies]
-python = "^3.7"
-argparse = "^1.4.0"
-colorama = "^0.4.6"
-httpx = {extras = ["socks"], version = "^0.23.1"}
-trio = "^0.22.0"
-tqdm = "^4.64.1"
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.4",
+    "ruff>=0.8.5",
+]
 
-[tool.poetry.group.dev.dependencies]
-pytest = "^6.0.0"
-black = "^22.12.0"
+[tool.setuptools.package-data]
+"okadminfinder.assets" = ["*.yml"]
 
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[tool.pytest.ini_options]
+testpaths = [
+    "tests",
+]
