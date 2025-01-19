@@ -2,7 +2,6 @@
 ![GitHub License](https://img.shields.io/github/license/michyamrane/okadminfinder?style=for-the-badge&logo=github&color=dodgerblue)
 ![Static Badge](https://img.shields.io/badge/platform-linux%20%7C%20win%20%7C%20osx-lightgrey?style=for-the-badge&color=slategray)
 ![GitHub Repo stars](https://img.shields.io/github/stars/michyamrane/okadminfinder?style=for-the-badge&logo=github&logoColor=black&labelColor=snow&color=slategray)
-![PyPI - Downloads](https://img.shields.io/pypi/dw/okadminfinder?style=for-the-badge&color=dodgerblue)
 ![Pepy Total Downloads](https://img.shields.io/pepy/dt/okadminfinder?style=for-the-badge&logo=pypi&logoColor=snow&color=dodgerblue)
 
 ## Overview
@@ -111,13 +110,12 @@ Built with Python 3.x, OKadminFinder offers a robust set of features to ensure e
     # Using Tor for Anonymity
     ❯ okadminfinder --url https://example.com --tor
     ```
-
-    > [!IMPORTANT]
-    > Parameter Conflicts:\
-    > Proxy and Tor: You cannot use both a proxy and Tor at the same time.\
-    > DNS Mode and Fuzzing Mode: You cannot use both DNS mode and fuzzing mode at the same time.\
-    > Files Option and Non-Fuzzing Mode: The --files option can only be used with the fuzzing mode.\
-    > URL and URLs File: You cannot provide both a single URL and a file containing multiple URLs at the same time.
+  > [!IMPORTANT]
+  > Parameter Conflicts:\
+  > Proxy and Tor: You cannot use both a proxy and Tor at the same time.\
+  > DNS Mode and Fuzzing Mode: You cannot use both DNS mode and fuzzing mode at the same time.\
+  > Files Option and Non-Fuzzing Mode: The --files option can only be used with the fuzzing mode.\
+  > URL and URLs File: You cannot provide both a single URL and a file containing multiple URLs at the same time.
 
   * ### Advanced Usage
 
