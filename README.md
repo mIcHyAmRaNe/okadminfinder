@@ -7,7 +7,7 @@
 
 ## Overview
 
-OKadminFinder is a powerful, open-source tool designed to help administrators and penetration testers discover admin panels, directories, and subdomains of a website.\
+OKadminFinder is a powerful, open-source tool designed to help administrators and penetration testers discover admin panels, directories, subdomains of a website and even some webshells.\
 Built with Python 3.x, OKadminFinder offers a robust set of features to ensure effective and secure scanning.
 
 ## Features
@@ -180,7 +180,7 @@ Built with Python 3.x, OKadminFinder offers a robust set of features to ensure e
 ## Disclaimer
 
 > [!IMPORTANT]
-> OKadminFinder is intended for educational purposes and authorized penetration testing only.
+> OKadminFinder is intended for educational purposes and authorized penetration testing only.\
 > Usage of OKadminFinder for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state, and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program.
 
 ## License
@@ -189,7 +189,7 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ## Donate
 
-> [!INFO]
+> [!NOTE]
 > If you find OKadminFinder useful and would like to support its development, you can donate to the following address:\
 > **Bitcoin Address:** `1LZiNVRZupWNbB9bEPxsiwoC5AGPAuFCjp` \
 > Your support is greatly appreciated ♥️
