@@ -1,6 +1,6 @@
 ![](https://gist.githubusercontent.com/mIcHyAmRaNe/0b370c808bd1a600778f6a3875e5a732/raw/35f2803c176eeb27d4eea5eac88087b0d78f0ecc/okadminfinder3-.png)
 ![GitHub License](https://img.shields.io/github/license/michyamrane/okadminfinder?style=for-the-badge&logo=github&color=dodgerblue)
-![Static Badge](https://img.shields.io/badge/platform-linux%20%7C%20windows%20%7C%20osx-lightgrey?style=for-the-badge&color=slategray)
+![Static Badge](https://img.shields.io/badge/platform-linux%20%7C%20win%20%7C%20osx-lightgrey?style=for-the-badge&color=slategray)
 ![GitHub Repo stars](https://img.shields.io/github/stars/michyamrane/okadminfinder?style=for-the-badge&logo=github&logoColor=black&labelColor=snow&color=slategray)
 ![PyPI - Downloads](https://img.shields.io/pypi/dw/okadminfinder?style=for-the-badge&color=dodgerblue)
 ![Pepy Total Downloads](https://img.shields.io/pepy/dt/okadminfinder?style=for-the-badge&logo=pypi&logoColor=snow&color=dodgerblue)
